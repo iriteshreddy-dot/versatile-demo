@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(magick:*)",
+      "Bash(pip show:*)",
+      "Bash(python:*)",
+      "WebFetch(domain:www.versatileitsol.com)"
+    ]
+  }
+}

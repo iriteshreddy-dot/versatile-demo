@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Versatile IT Solutions — Design Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --hero-start:#1B45B4;--hero-end:#1C2792;
+  --blue:#0097FE;--blue-dark:#006FBA;--blue-darkest:#14358A;
+  --blue-light:#EBF7FF;--purple-start:#6A36FF;--purple-end:#AC5FE6;
+  --icon-start:#0097FE;--icon-end:#14358A;
+  --text-grey:#68718B;--border:#CDD0D8;--light-grey:#E6E8EC;
+  --surface:#F6F7FE;--body:#1B2559;--heading:#03133D;
+  --success:#05CD99;--warning:#FFAE00;--error:#EF4444;
+  --shadow-sm:8px 16px 52px rgba(126,138,253,.08);
+  --shadow-md:8px 24px 96px rgba(126,138,253,.08);
+  --shadow-lg:16px 32px 74px rgba(126,138,253,.08);
+  --r:10px;--r-pill:9999px;--r-lg:16px;
+  --font:'DM Sans',sans-serif;--mono:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:#F4F6FF;color:var(--body);-webkit-font-smoothing:antialiased}
+
+/* PAGE */
+.wrap{display:grid;grid-template-columns:256px 1fr;min-height:100vh}
+
+/* ── SIDEBAR ── */
+.sb{
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:linear-gradient(165deg,var(--hero-start),var(--hero-end));
+  padding:36px 20px;display:flex;flex-direction:column;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent;
+}
+.sb-logo{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.sb-mark{width:32px;height:32px;background:rgba(255,255,255,.15);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.sb-tag{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;padding-left:42px}
+.sb-group{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin:20px 0 6px;padding:0 8px}
+.sb-a{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;font-weight:500;transition:all .15s}
+.sb-a:hover,.sb-a.on{background:rgba(255,255,255,.12);color:#fff}
+.sb-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25);flex-shrink:0}
+.sb-a.on .sb-dot{background:var(--blue)}
+.sb-foot{margin-top:auto;padding-top:24px;font-size:10px;color:rgba(255,255,255,.25);padding-left:8px}
+
+/* ── MAIN ── */
+.main{padding:56px 72px;max-width:1060px}
+
+/* ── SECTIONS ── */
+.sec{margin-bottom:88px}
+.sec-hd{display:flex;align-items:flex-start;gap:18px;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--light-grey)}
+.sec-num{font-size:12px;font-weight:700;color:var(--blue);background:var(--blue-light);padding:3px 10px;border-radius:var(--r-pill);flex-shrink:0;margin-top:6px;letter-spacing:.04em}
+.sec-h{font-size:34px;font-weight:700;color:var(--heading);letter-spacing:-.03em;line-height:1.05}
+.sec-d{font-size:15px;color:var(--text-grey);line-height:1.6;margin-top:6px;max-width:540px}
+
+/* ── HERO BANNER ── */
+.hero-banner{
+  background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);
+  border-radius:var(--r-lg);padding:56px;margin-bottom:72px;
+  position:relative;overflow:hidden;
+}
+.hero-banner::before{content:'';position:absolute;right:-40px;top:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(0,151,254,.3) 0%,transparent 70%)}
+.hero-banner::after{content:'';position:absolute;left:-30px;bottom:-50px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(106,54,255,.2) 0%,transparent 70%)}
+.hb-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-pill);padding:5px 14px;font-size:11px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
+.hb-h{font-size:48px;font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1.05;position:relative;z-index:1;margin-bottom:12px}
+.hb-sub{font-size:17px;color:rgba(255,255,255,.7);line-height:1.5;max-width:500px;position:relative;z-index:1;margin-bottom:36px}
+.hb-meta{display:flex;gap:28px;position:relative;z-index:1}
+.hb-mi{display:flex;flex-direction:column;gap:3px}
+.hb-ml{font-size:10px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em}
+.hb-mv{font-size:14px;font-weight:600;color:#fff}
+
+/* ── COLOUR GRID ── */
+.col-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;margin-bottom:28px}
+.col-chip{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,.04)}
+.col-sw{height:72px;position:relative;display:flex;align-items:flex-end;padding:8px}
+.col-sw-txt{font-size:10px;font-weight:500;opacity:.65;font-family:var(--mono)}
+.col-info{padding:10px 12px;background:#fff}
+.col-name{font-size:12px;font-weight:700;color:var(--heading);margin-bottom:2px}
+.col-hex{font-size:11px;color:var(--text-grey);font-family:var(--mono)}
+.col-role{font-size:10px;color:var(--border);margin-top:2px}
+.col-group{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-grey);margin:24px 0 12px}
+
+/* ── GRADIENT GRID ── */
+.grad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.grad-card{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
+.grad-sw{height:90px}
+.grad-info{background:#fff;padding:12px 14px}
+.grad-name{font-size:12px;font-weight:700;color:var(--heading);margin-bottom:3px}
+.grad-css{font-size:10.5px;font-family:var(--mono);color:var(--text-grey);line-height:1.55}
+
+/* ── TYPE TABLE ── */
+.type-rows{display:flex;flex-direction:column}
+.type-row{display:grid;grid-template-columns:130px 1fr 210px;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--light-grey)}
+.type-row:last-child{border-bottom:none}
+.type-lbl{font-size:11px;font-weight:700;color:var(--text-grey);text-transform:uppercase;letter-spacing:.08em;align-self:center}
+.type-spec{font-family:var(--font);color:var(--heading);line-height:1.1}
+.type-meta{align-self:center}
+.t-tag{display:inline-block;font-size:10px;font-family:var(--mono);background:var(--surface);color:var(--text-grey);padding:2px 6px;border-radius:4px;margin:2px 2px 2px 0}
+
+/* ── SPACING ── */
+.sp-row{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;padding:32px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm)}
+.sp-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+.sp-bar{width:28px;background:linear-gradient(135deg,var(--blue),var(--blue-darkest));border-radius:3px}
+.sp-val{font-size:12px;font-weight:700;color:var(--heading)}
+.sp-lbl{font-size:10px;font-family:var(--mono);color:var(--text-grey);text-align:center}
+
+/* ── SHADOW DEMO ── */
+.sh-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.sh-card{background:#fff;border-radius:var(--r);padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.sh-box{width:72px;height:72px;background:#fff;border-radius:var(--r)}
+.sh-name{font-size:13px;font-weight:700;color:var(--heading)}
+.sh-val{font-size:10.5px;font-family:var(--mono);color:var(--text-grey);word-break:break-all;line-height:1.5}
+
+/* ── RADIUS ── */
+.rx-row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end;padding:32px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm)}
+.rx-item{display:flex;flex-direction:column;align-items:center;gap:10px}
+.rx-box{width:72px;height:72px;background:linear-gradient(135deg,var(--blue),var(--blue-darkest))}
+.rx-lbl{font-size:12px;font-weight:700;color:var(--heading)}
+.rx-val{font-size:10px;font-family:var(--mono);color:var(--text-grey)}
+
+/* ── COMPONENTS ── */
+.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.comp-card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--light-grey);box-shadow:var(--shadow-sm)}
+.comp-prev{padding:28px;background:var(--surface);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;min-height:110px}
+.comp-prev.dark{background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%)}
+.comp-meta{padding:16px 20px;border-top:1px solid var(--light-grey)}
+.comp-name{font-size:13px;font-weight:700;color:var(--heading);margin-bottom:3px}
+.comp-spec{font-size:11px;color:var(--text-grey);font-family:var(--mono);line-height:1.65}
+
+/* Reusable button/pill styles matching the live site */
+.b-purple{display:inline-flex;align-items:center;justify-content:center;padding:20px 40px;background:linear-gradient(112.8deg,#6A36FF -15.76%,#AC5FE6 102.86%);border-radius:10px;font-size:18px;font-weight:700;color:#fff;border:none;cursor:pointer;font-family:var(--font)}
+.b-purple.sm{padding:16px 32px;font-size:16px}
+.b-outline-dark{display:inline-flex;align-items:center;justify-content:center;padding:20px 40px;border:1px solid #fff;border-radius:10px;font-size:18px;font-weight:700;color:#fff;background:transparent;font-family:var(--font)}
+.b-outline{display:inline-flex;align-items:center;justify-content:center;padding:16px 32px;border:1px solid #006FBA;border-radius:10px;font-size:16px;font-weight:700;color:#006FBA;background:transparent;font-family:var(--font)}
+.pill{display:inline-flex;align-items:center;padding:4px 12px;border-radius:9999px;font-size:13px;font-weight:700}
+.pill.b{background:var(--blue-light);color:var(--blue)}
+.pill.g{background:rgba(5,205,153,.1);color:#05CD99}
+.pill.y{background:rgba(255,174,0,.1);color:#FFAE00}
+.pill.r{background:rgba(239,68,68,.1);color:#EF4444}
+.pill.p{background:rgba(172,95,230,.1);color:#AC5FE6}
+
+/* Nav preview */
+.nav-prev{background:linear-gradient(83.79deg,#1B45B4 3.25%,#1C2792 96.85%);border-radius:10px;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between;width:100%}
+.nav-logo-p{font-size:17px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.nav-links-p{display:flex;gap:22px}
+.nav-link-p{font-size:13px;color:rgba(255,255,255,.8)}
+.nav-link-p.on{font-weight:700;color:#fff}
+.nav-cta-p{padding:7px 14px;border:1px solid #fff;border-radius:8px;font-size:12px;font-weight:700;color:#fff}
+
+/* Icon badge */
+.icon-bg{width:64px;height:64px;border-radius:10px;background:linear-gradient(52.37deg,#0097FE -5.7%,#14358A 94.69%);display:flex;align-items:center;justify-content:center;font-size:20px}
+.icon-bg.sm{width:48px;height:48px}
+
+/* Stat card */
+.stat-card{background:#fff;border-radius:10px;padding:14px 18px;box-shadow:var(--shadow-sm);border:1px solid #F5F5F5;display:flex;align-items:center;gap:12px}
+.stat-ic{width:44px;height:44px;border-radius:8px;background:#F6F7FE;display:flex;align-items:center;justify-content:center;font-size:16px}
+.stat-lbl{font-size:12px;color:var(--border)}
+.stat-val{font-size:20px;font-weight:700;color:#1B2559;letter-spacing:-.03em}
+
+/* Motion boxes */
+@keyframes fadeUp{0%,100%{opacity:0;transform:translateY(18px)}40%,60%{opacity:1;transform:translateY(0)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulseSc{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes slideIn{0%,100%{opacity:0;transform:translateX(-18px)}40%,60%{opacity:1;transform:translateX(0)}}
+.m-box{width:44px;height:44px;background:linear-gradient(135deg,#6A36FF,#AC5FE6);border-radius:10px}
+.m-box.a1{animation:fadeUp 2s ease infinite}
+.m-box.a2{animation:floatY 2s ease-in-out infinite}
+.m-box.a3{animation:pulseSc 2s ease-in-out infinite}
+.m-box.a4{animation:slideIn 2s ease infinite}
+.m-card{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);border:1px solid var(--light-grey)}
+.m-demo{height:70px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.m-name{font-size:13px;font-weight:700;color:var(--heading);margin-bottom:5px}
+.m-spec{font-size:11px;font-family:var(--mono);color:var(--text-grey);line-height:1.65}
+
+/* Code block */
+.code{background:#0D1117;border-radius:var(--r);padding:22px;overflow-x:auto;margin-top:16px}
+.code pre{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:#E2E8F0}
+.kw{color:#7DD3FC}.val{color:#FCD34D}.str{color:#6EE7B7}.com{color:#4B5563;font-style:italic}.prop{color:#C084FC}
+
+/* Do/dont */
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dd{border-radius:var(--r);overflow:hidden;border:2px solid transparent}
+.dd.do{border-color:var(--success)}
+.dd.dont{border-color:var(--error)}
+.dd-hd{padding:11px 18px;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700}
+.dd.do .dd-hd{background:rgba(5,205,153,.07);color:var(--success)}
+.dd.dont .dd-hd{background:rgba(239,68,68,.07);color:var(--error)}
+.dd-body{padding:20px;background:#fff}
+.dd-li{font-size:13px;color:var(--text-grey);line-height:1.6;display:flex;gap:9px;margin-bottom:9px}
+.dd-li:last-child{margin-bottom:0}
+.dd-ic{flex-shrink:0;font-weight:700}
+.dd.do .dd-ic{color:var(--success)}
+.dd.dont .dd-ic{color:var(--error)}
+
+/* Scroll reveal */
+.rev{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.rev.vis{opacity:1;transform:none}
+
+/* Layout demo boxes */
+.lay-box{background:var(--blue-light);border-radius:6px;padding:8px 6px;text-align:center;font-size:10px;font-family:var(--mono);color:var(--blue);font-weight:700}
+
+/* Page metrics */
+.metric-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.metric{background:#fff;border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow-sm)}
+.metric-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-grey);margin-bottom:6px}
+.metric-v{font-size:20px;font-weight:700;color:var(--heading)}
+.metric-s{font-size:11px;color:var(--text-grey);margin-top:3px}
+
+/* Principles */
+.prin-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.prin{background:#fff;border-radius:12px;padding:28px;box-shadow:var(--shadow-sm)}
+.prin-em{font-size:26px;margin-bottom:10px}
+.prin-t{font-size:17px;font-weight:700;color:var(--heading);margin-bottom:7px}
+.prin-d{font-size:13px;color:var(--text-grey);line-height:1.7}
+
+/* Doc footer */
+.doc-footer{background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);border-radius:var(--r-lg);padding:36px 44px;color:rgba(255,255,255,.65);font-size:13px;line-height:1.7;margin-top:72px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.doc-footer strong{color:#fff}
+
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.sb{display:none}.main{padding:36px 20px}.comp-grid,.dd-grid,.sh-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- SIDEBAR -->
+<aside class="sb">
+  <div class="sb-logo"><div class="sb-mark">V</div>Versatile IT</div>
+  <div class="sb-tag">Design Guidelines v1.0</div>
+
+  <div class="sb-group">Foundations</div>
+  <a href="#intro" class="sb-a on"><span class="sb-dot"></span>Introduction</a>
+  <a href="#principles" class="sb-a"><span class="sb-dot"></span>Design Principles</a>
+
+  <div class="sb-group">Visual Language</div>
+  <a href="#colors" class="sb-a"><span class="sb-dot"></span>Color System</a>
+  <a href="#gradients" class="sb-a"><span class="sb-dot"></span>Gradients</a>
+  <a href="#type" class="sb-a"><span class="sb-dot"></span>Typography</a>
+  <a href="#spacing" class="sb-a"><span class="sb-dot"></span>Spacing</a>
+  <a href="#shadows" class="sb-a"><span class="sb-dot"></span>Shadows & Depth</a>
+  <a href="#radius" class="sb-a"><span class="sb-dot"></span>Border Radius</a>
+
+  <div class="sb-group">Components</div>
+  <a href="#buttons" class="sb-a"><span class="sb-dot"></span>Buttons</a>
+  <a href="#navigation" class="sb-a"><span class="sb-dot"></span>Navigation</a>
+  <a href="#cards" class="sb-a"><span class="sb-dot"></span>Cards</a>
+  <a href="#badges" class="sb-a"><span class="sb-dot"></span>Badges & Tags</a>
+  <a href="#icons" class="sb-a"><span class="sb-dot"></span>Icon System</a>
+
+  <div class="sb-group">Interaction & Structure</div>
+  <a href="#motion" class="sb-a"><span class="sb-dot"></span>Motion & Animation</a>
+  <a href="#layout" class="sb-a"><span class="sb-dot"></span>Layout & Grid</a>
+  <a href="#dosdont" class="sb-a"><span class="sb-dot"></span>Do's & Don'ts</a>
+
+  <div class="sb-foot">Saasly System · March 2025</div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HERO -->
+<div class="hero-banner" id="intro">
+  <div class="hb-chip">✦ Design System v1.0</div>
+  <h1 class="hb-h">Versatile IT Solutions<br/>Design Guidelines</h1>
+  <p class="hb-sub">A comprehensive visual language for building consistent, premium digital experiences across all Versatile IT Solutions products and touchpoints.</p>
+  <div class="hb-meta">
+    <div class="hb-mi"><div class="hb-ml">Base Font</div><div class="hb-mv">DM Sans</div></div>
+    <div class="hb-mi"><div class="hb-ml">Template</div><div class="hb-mv">Saasly</div></div>
+    <div class="hb-mi"><div class="hb-ml">Breakpoints</div><div class="hb-mv">1440 / 768 / 375</div></div>
+    <div class="hb-mi"><div class="hb-ml">Primary Brand</div><div class="hb-mv">#1B45B4</div></div>
+    <div class="hb-mi"><div class="hb-ml">Canvas</div><div class="hb-mv">1440 × 7098</div></div>
+  </div>
+</div>
+
+<!-- 01 PRINCIPLES -->
+<section class="sec rev" id="principles">
+  <div class="sec-hd">
+    <span class="sec-num">01</span>
+    <div><h2 class="sec-h">Design Principles</h2><p class="sec-d">Four values guiding every design decision under the Versatile IT Solutions brand.</p></div>
+  </div>
+  <div class="prin-grid">
+    <div class="prin" style="border-left:4px solid #0097FE"><div class="prin-em">⚡</div><div class="prin-t">Clarity First</div><div class="prin-d">Every layout communicates value immediately. Visual hierarchy guides the eye: awareness → trust → action. Users never wonder what to do next.</div></div>
+    <div class="prin" style="border-left:4px solid #6A36FF"><div class="prin-em">🎯</div><div class="prin-t">Premium Precision</div><div class="prin-d">Every pixel is intentional. Spacing follows an 8px grid. Shadows are layered systematically. Typography uses exact weights, sizes, and tracking.</div></div>
+    <div class="prin" style="border-left:4px solid #05CD99"><div class="prin-em">🌐</div><div class="prin-t">Global Trust</div><div class="prin-d">Across 4 continents, the brand must feel enterprise-grade and credible. Deep blue tones signal authority; clean white space signals expertise.</div></div>
+    <div class="prin" style="border-left:4px solid #FFAE00"><div class="prin-em">🤖</div><div class="prin-t">AI-Forward Identity</div><div class="prin-d">ML & AI lead the narrative. Data visualisations, gradient accents, and futuristic spatial compositions signal technological sophistication.</div></div>
+  </div>
+</section>
+
+<!-- 02 COLOURS -->
+<section class="sec rev" id="colors">
+  <div class="sec-hd">
+    <span class="sec-num">02</span>
+    <div><h2 class="sec-h">Color System</h2><p class="sec-d">A deep-blue foundation with precise accent tones, semantic states, and a neutral scale.</p></div>
+  </div>
+
+  <div class="col-group">Primary Brand Blues</div>
+  <div class="col-grid">
+    <div class="col-chip"><div class="col-sw" style="background:#1B45B4"><span class="col-sw-txt" style="color:rgba(255,255,255,.6)">Aa</span></div><div class="col-info"><div class="col-name">Hero Blue Start</div><div class="col-hex">#1B45B4</div><div class="col-role">Hero / footer gradient start</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#1C2792"><span class="col-sw-txt" style="color:rgba(255,255,255,.6)">Aa</span></div><div class="col-info"><div class="col-name">Hero Blue End</div><div class="col-hex">#1C2792</div><div class="col-role">Hero / footer gradient end</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#0097FE"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Primary Blue</div><div class="col-hex">#0097FE</div><div class="col-role">Interactive, charts, icons</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#006FBA"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Dark Blue</div><div class="col-hex">#006FBA</div><div class="col-role">Card headings, links</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#14358A"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Darkest Blue</div><div class="col-hex">#14358A</div><div class="col-role">Section titles</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#EBF7FF;border-bottom:1px solid #e0eeff"><span class="col-sw-txt" style="color:#0097FE">Aa</span></div><div class="col-info"><div class="col-name">Light Blue BG</div><div class="col-hex">#EBF7FF</div><div class="col-role">CTA section, badge BGs</div></div></div>
+  </div>
+
+  <div class="col-group">Accent & Semantic</div>
+  <div class="col-grid">
+    <div class="col-chip"><div class="col-sw" style="background:linear-gradient(112.8deg,#6A36FF,#AC5FE6)"><span class="col-sw-txt" style="color:rgba(255,255,255,.6)">Aa</span></div><div class="col-info"><div class="col-name">CTA Purple Gradient</div><div class="col-hex">#6A36FF → #AC5FE6</div><div class="col-role">Primary CTA buttons only</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#AC5FE6"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Purple End</div><div class="col-hex">#AC5FE6</div><div class="col-role">Card accent gradient end</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#05CD99"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Success</div><div class="col-hex">#05CD99</div><div class="col-role">Positive states, KPIs</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#FFAE00"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Warning</div><div class="col-hex">#FFAE00</div><div class="col-role">Caution, blog tags</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#EF4444"><span class="col-sw-txt" style="color:rgba(255,255,255,.7)">Aa</span></div><div class="col-info"><div class="col-name">Error</div><div class="col-hex">#EF4444</div><div class="col-role">Error states only</div></div></div>
+  </div>
+
+  <div class="col-group">Neutrals</div>
+  <div class="col-grid">
+    <div class="col-chip"><div class="col-sw" style="background:#03133D"><span class="col-sw-txt" style="color:rgba(255,255,255,.5)">Aa</span></div><div class="col-info"><div class="col-name">Heading Dark</div><div class="col-hex">#03133D</div><div class="col-role">Primary headings</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#1B2559"><span class="col-sw-txt" style="color:rgba(255,255,255,.5)">Aa</span></div><div class="col-info"><div class="col-name">Body Text</div><div class="col-hex">#1B2559</div><div class="col-role">Default body copy</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#68718B"><span class="col-sw-txt" style="color:#fff">Aa</span></div><div class="col-info"><div class="col-name">Text Grey</div><div class="col-hex">#68718B</div><div class="col-role">Descriptions, subtitles</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#CDD0D8"><span class="col-sw-txt" style="color:#fff">Aa</span></div><div class="col-info"><div class="col-name">Border Grey</div><div class="col-hex">#CDD0D8</div><div class="col-role">Chart labels, metadata</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#E6E8EC;border-bottom:1px solid #e0e2e8"><span class="col-sw-txt" style="color:#999">Aa</span></div><div class="col-info"><div class="col-name">Light Grey</div><div class="col-hex">#E6E8EC</div><div class="col-role">Dividers, borders</div></div></div>
+    <div class="col-chip"><div class="col-sw" style="background:#F6F7FE;border-bottom:1px solid #edeef8"><span class="col-sw-txt" style="color:#aaa">Aa</span></div><div class="col-info"><div class="col-name">Surface</div><div class="col-hex">#F6F7FE</div><div class="col-role">Card BGs, icon wrappers</div></div></div>
+  </div>
+</section>
+
+<!-- 03 GRADIENTS -->
+<section class="sec rev" id="gradients">
+  <div class="sec-hd">
+    <span class="sec-num">03</span>
+    <div><h2 class="sec-h">Gradient System</h2><p class="sec-d">Six core gradients creating depth, visual hierarchy, and a premium digital-native aesthetic.</p></div>
+  </div>
+  <div class="grad-grid">
+    <div class="grad-card"><div class="grad-sw" style="background:linear-gradient(83.79deg,#1B45B4 3.25%,#1C2792 96.85%)"></div><div class="grad-info"><div class="grad-name">Hero / Footer</div><div class="grad-css">linear-gradient(83.79deg,<br/>#1B45B4 3.25%, #1C2792 96.85%)</div></div></div>
+    <div class="grad-card"><div class="grad-sw" style="background:linear-gradient(112.8deg,#6A36FF -15.76%,#AC5FE6 102.86%)"></div><div class="grad-info"><div class="grad-name">CTA Purple</div><div class="grad-css">linear-gradient(112.8deg,<br/>#6A36FF -15.76%, #AC5FE6 102.86%)</div></div></div>
+    <div class="grad-card"><div class="grad-sw" style="background:linear-gradient(52.37deg,#0097FE -5.7%,#14358A 94.69%)"></div><div class="grad-info"><div class="grad-name">Icon Badge</div><div class="grad-css">linear-gradient(52.37deg,<br/>#0097FE -5.7%, #14358A 94.69%)</div></div></div>
+    <div class="grad-card"><div class="grad-sw" style="background:linear-gradient(135deg,#AC60E5 0%,#0C87F0 100%)"></div><div class="grad-info"><div class="grad-name">Card Accent</div><div class="grad-css">linear-gradient(135deg,<br/>#AC60E5 0%, #0C87F0 100%)</div></div></div>
+    <div class="grad-card"><div class="grad-sw" style="background:linear-gradient(109.87deg,rgba(5,137,240,.65),rgba(177,78,223,.65))"></div><div class="grad-info"><div class="grad-name">Glow Blob</div><div class="grad-css">linear-gradient(109.87deg,<br/>rgba(5,137,240,.6), rgba(177,78,223,.6))<br/>filter: blur(67.5px)</div></div></div>
+    <div class="grad-card"><div class="grad-sw" style="background:linear-gradient(277.47deg,rgba(0,151,254,0) 8.72%,rgba(0,151,254,.86) 91.5%)"></div><div class="grad-info"><div class="grad-name">Decorative Rect</div><div class="grad-css">linear-gradient(277.47deg,<br/>rgba(0,151,254,0) 8.72%,<br/>rgba(0,151,254,.86) 91.5%)</div></div></div>
+  </div>
+</section>
+
+<!-- 04 TYPOGRAPHY -->
+<section class="sec rev" id="type">
+  <div class="sec-hd">
+    <span class="sec-num">04</span>
+    <div><h2 class="sec-h">Typography</h2><p class="sec-d">DM Sans — a geometric sans-serif with humanist warmth, ideal for tech-forward brands. Used exclusively at all weights.</p></div>
+  </div>
+
+  <!-- Font specimen -->
+  <div style="background:#fff;border-radius:12px;padding:36px 44px;box-shadow:var(--shadow-sm);margin-bottom:28px;border:1px solid var(--light-grey)">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-grey);margin-bottom:20px">DM Sans — Weight Spectrum</div>
+    <div style="font-size:36px;font-weight:300;color:var(--heading);letter-spacing:-.02em;margin-bottom:6px;line-height:1">Light 300 — The quick brown fox</div>
+    <div style="font-size:36px;font-weight:400;color:var(--heading);letter-spacing:-.02em;margin-bottom:6px;line-height:1">Regular 400 — The quick brown fox</div>
+    <div style="font-size:36px;font-weight:500;color:var(--heading);letter-spacing:-.02em;margin-bottom:6px;line-height:1">Medium 500 — The quick brown fox</div>
+    <div style="font-size:36px;font-weight:700;color:var(--heading);letter-spacing:-.02em;line-height:1">Bold 700 — The quick brown fox</div>
+  </div>
+
+  <div class="type-rows">
+    <div class="type-row"><div class="type-lbl">H1 · Hero</div><div class="type-spec" style="font-size:54px;font-weight:700;letter-spacing:-.03em">Grow Your Business</div><div class="type-meta"><span class="t-tag">54–60px</span><span class="t-tag">700</span><span class="t-tag">ls -0.03em</span><span class="t-tag">lh 1.1</span><span class="t-tag">#fff on blue</span></div></div>
+    <div class="type-row"><div class="type-lbl">H2 · Section</div><div class="type-spec" style="font-size:44px;font-weight:700;letter-spacing:-.03em;color:#14358A">We make it easy</div><div class="type-meta"><span class="t-tag">48px</span><span class="t-tag">700</span><span class="t-tag">ls -0.03em</span><span class="t-tag">lh 1.05</span><span class="t-tag">#14358A</span></div></div>
+    <div class="type-row"><div class="type-lbl">H3 · Feature</div><div class="type-spec" style="font-size:30px;font-weight:700;letter-spacing:-.03em;color:#006FBA">Real Time Analytics</div><div class="type-meta"><span class="t-tag">32px</span><span class="t-tag">700</span><span class="t-tag">ls -0.03em</span><span class="t-tag">lh 1.05</span><span class="t-tag">#006FBA</span></div></div>
+    <div class="type-row"><div class="type-lbl">H4 · Card</div><div class="type-spec" style="font-size:22px;font-weight:700;letter-spacing:-.03em;color:#006FBA">Facebook Integration</div><div class="type-meta"><span class="t-tag">24px</span><span class="t-tag">700</span><span class="t-tag">ls -0.03em</span><span class="t-tag">lh 1.1</span><span class="t-tag">#006FBA</span></div></div>
+    <div class="type-row"><div class="type-lbl">Body Large</div><div class="type-spec" style="font-size:17px;font-weight:400;color:#68718B;line-height:1.35;max-width:380px">We build powerful web, mobile &amp; AI products that transform how your business operates globally.</div><div class="type-meta"><span class="t-tag">18px</span><span class="t-tag">400</span><span class="t-tag">lh 1.35</span><span class="t-tag">#68718B</span></div></div>
+    <div class="type-row"><div class="type-lbl">Body</div><div class="type-spec" style="font-size:15px;font-weight:400;color:#68718B;line-height:1.4;max-width:380px">Leverage ML pipelines to automate workflows and uncover data-driven insights for your business.</div><div class="type-meta"><span class="t-tag">16px</span><span class="t-tag">400</span><span class="t-tag">lh 1.4</span><span class="t-tag">#68718B</span></div></div>
+    <div class="type-row"><div class="type-lbl">Label / Small</div><div class="type-spec" style="font-size:13px;font-weight:700;color:#1B2559">TODAY, 16:36 · SPENT THIS MONTH</div><div class="type-meta"><span class="t-tag">14px</span><span class="t-tag">400 / 700</span><span class="t-tag">lh 1.4</span></div></div>
+    <div class="type-row"><div class="type-lbl">Data Value</div><div class="type-spec" style="font-size:38px;font-weight:700;letter-spacing:-.03em;color:#03133D">$801.5k</div><div class="type-meta"><span class="t-tag">40px</span><span class="t-tag">700</span><span class="t-tag">ls -0.03em</span><span class="t-tag">#03133D</span></div></div>
+    <div class="type-row"><div class="type-lbl">Overline</div><div class="type-spec" style="font-size:11px;font-weight:700;color:#68718B;text-transform:uppercase;letter-spacing:.1em">Design System · V1.0</div><div class="type-meta"><span class="t-tag">12px</span><span class="t-tag">700</span><span class="t-tag">uppercase</span><span class="t-tag">ls 0.1em</span></div></div>
+  </div>
+
+  <div class="code">
+    <pre><span class="com">/* Google Fonts import */</span>
+<span class="kw">@import</span> <span class="str">url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700')</span>;
+
+<span class="kw">:root</span> {
+  <span class="prop">--font</span>: <span class="str">'DM Sans', sans-serif</span>;
+  <span class="prop">--mono</span>: <span class="str">'DM Mono', monospace</span>; <span class="com">/* data values only */</span>
+}
+
+<span class="com">/* Section heading pattern */</span>
+<span class="kw">h2.section-title</span> {
+  <span class="prop">font-size</span>: <span class="val">48px</span>;
+  <span class="prop">font-weight</span>: <span class="val">700</span>;
+  <span class="prop">letter-spacing</span>: <span class="val">-0.03em</span>;
+  <span class="prop">line-height</span>: <span class="val">1.05</span>;
+  <span class="prop">color</span>: <span class="str">#14358A</span>;
+}</pre>
+  </div>
+</section>
+
+<!-- 05 SPACING -->
+<section class="sec rev" id="spacing">
+  <div class="sec-hd">
+    <span class="sec-num">05</span>
+    <div><h2 class="sec-h">Spacing System</h2><p class="sec-d">An 8px base grid. All padding, margins, and gaps are multiples of 8.</p></div>
+  </div>
+  <div class="sp-row">
+    <div class="sp-item"><div class="sp-bar" style="height:4px"></div><div class="sp-val">4px</div><div class="sp-lbl">0.5×<br/>micro</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:8px"></div><div class="sp-val">8px</div><div class="sp-lbl">1×<br/>xs</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:12px"></div><div class="sp-val">12px</div><div class="sp-lbl">1.5×</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:16px"></div><div class="sp-val">16px</div><div class="sp-lbl">2×<br/>sm</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:24px"></div><div class="sp-val">24px</div><div class="sp-lbl">3×<br/>card gap</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:32px"></div><div class="sp-val">32px</div><div class="sp-lbl">4×</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:40px"></div><div class="sp-val">40px</div><div class="sp-lbl">5×<br/>btn pad</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:48px"></div><div class="sp-val">48px</div><div class="sp-lbl">6×<br/>footer cols</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:64px"></div><div class="sp-val">64px</div><div class="sp-lbl">8×<br/>section gap</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:80px"></div><div class="sp-val">80px</div><div class="sp-lbl">10×<br/>section pad</div></div>
+    <div class="sp-item"><div class="sp-bar" style="height:96px"></div><div class="sp-val">96px</div><div class="sp-lbl">12×<br/>hero inner</div></div>
+  </div>
+  <div class="metric-row" style="margin-top:16px">
+    <div class="metric"><div class="metric-l">Page Gutters</div><div class="metric-v">170px</div><div class="metric-s">Horizontal padding at 1440px</div></div>
+    <div class="metric"><div class="metric-l">Max Content Width</div><div class="metric-v">1100px</div><div class="metric-s">Inner content container</div></div>
+    <div class="metric"><div class="metric-l">Section Padding</div><div class="metric-v">80px</div><div class="metric-s">Top &amp; bottom per section</div></div>
+  </div>
+</section>
+
+<!-- 06 SHADOWS -->
+<section class="sec rev" id="shadows">
+  <div class="sec-hd">
+    <span class="sec-num">06</span>
+    <div><h2 class="sec-h">Shadows & Depth</h2><p class="sec-d">Three elevation levels. All use a blue-tinted rgba(126,138,253,x) shadow reinforcing brand palette.</p></div>
+  </div>
+  <div class="sh-grid">
+    <div class="sh-card" style="box-shadow:8px 16px 52px rgba(126,138,253,.08)">
+      <div class="sh-box" style="box-shadow:8px 16px 52px rgba(126,138,253,.18)"></div>
+      <div class="sh-name">Shadow SM</div>
+      <div class="sh-val">8px 16px 52px rgba(126,138,253,.08)</div>
+      <div style="font-size:11px;color:var(--text-grey)">Cards, stat widgets, pills</div>
+    </div>
+    <div class="sh-card" style="box-shadow:8px 24px 96px rgba(126,138,253,.08)">
+      <div class="sh-box" style="box-shadow:8px 24px 96px rgba(126,138,253,.2)"></div>
+      <div class="sh-name">Shadow MD</div>
+      <div class="sh-val">8px 24px 96px rgba(126,138,253,.08)</div>
+      <div style="font-size:11px;color:var(--text-grey)">Feature illustrations, modals</div>
+    </div>
+    <div class="sh-card" style="box-shadow:16px 32px 74px rgba(126,138,253,.08)">
+      <div class="sh-box" style="box-shadow:16px 32px 74px rgba(126,138,253,.24)"></div>
+      <div class="sh-name">Shadow LG</div>
+      <div class="sh-val">16px 32px 74px rgba(126,138,253,.08)</div>
+      <div style="font-size:11px;color:var(--text-grey)">Dashboard, hero illustrations</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 RADIUS -->
+<section class="sec rev" id="radius">
+  <div class="sec-hd">
+    <span class="sec-num">07</span>
+    <div><h2 class="sec-h">Border Radius</h2><p class="sec-d">Seven consistent corner radii — 10px is the default card/button radius throughout the site.</p></div>
+  </div>
+  <div class="rx-row">
+    <div class="rx-item"><div class="rx-box" style="border-radius:4px"></div><div class="rx-lbl">4px</div><div class="rx-val">Mini tags, bars</div></div>
+    <div class="rx-item"><div class="rx-box" style="border-radius:6px"></div><div class="rx-lbl">6px</div><div class="rx-val">Article tags</div></div>
+    <div class="rx-item"><div class="rx-box" style="border-radius:8px"></div><div class="rx-lbl">8px</div><div class="rx-val">Txn icons, tabs</div></div>
+    <div class="rx-item"><div class="rx-box" style="border-radius:10px"></div><div class="rx-lbl">10px ★</div><div class="rx-val">Cards, buttons (default)</div></div>
+    <div class="rx-item"><div class="rx-box" style="border-radius:12px"></div><div class="rx-lbl">12px</div><div class="rx-val">Platform icons</div></div>
+    <div class="rx-item"><div class="rx-box" style="border-radius:16px"></div><div class="rx-lbl">16px</div><div class="rx-val">Hero panels</div></div>
+    <div class="rx-item"><div class="rx-box" style="border-radius:9999px;width:72px;height:36px"></div><div class="rx-lbl">9999px</div><div class="rx-val">Pills, nav badges</div></div>
+  </div>
+</section>
+
+<!-- 08 BUTTONS -->
+<section class="sec rev" id="buttons">
+  <div class="sec-hd">
+    <span class="sec-num">08</span>
+    <div><h2 class="sec-h">Buttons</h2><p class="sec-d">Four variants covering all interaction contexts from hero CTAs to subtle secondary actions.</p></div>
+  </div>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="comp-prev"><button class="b-purple">Get Started Free</button></div><div class="comp-meta"><div class="comp-name">Primary — Purple Gradient</div><div class="comp-spec">padding: 20px 40px · font: 18px/700<br/>background: linear-gradient(112.8deg, #6A36FF, #AC5FE6)<br/>border-radius: 10px · color: #fff<br/>hover: opacity .9, translateY(-1px)</div></div></div>
+    <div class="comp-card"><div class="comp-prev dark"><button class="b-outline-dark">View Our Work ›</button></div><div class="comp-meta"><div class="comp-name">Secondary — White Outline (on dark)</div><div class="comp-spec">padding: 20px 40px · font: 18px/700<br/>border: 1px solid #fff · color: #fff<br/>background: transparent · border-radius: 10px<br/>hover: background rgba(255,255,255,.1)</div></div></div>
+    <div class="comp-card"><div class="comp-prev"><button class="b-purple sm">More Details</button><button class="b-outline">Learn More</button></div><div class="comp-meta"><div class="comp-name">Small Variants (light context)</div><div class="comp-spec">padding: 16px 32px · font: 16px/700<br/>Same gradient / outline rules at reduced size<br/>Outline uses border: 1px solid #006FBA · color: #006FBA</div></div></div>
+    <div class="comp-card"><div class="comp-prev" style="flex-direction:column;gap:10px"><div style="display:flex;gap:10px;flex-wrap:wrap"><span class="pill b">+2.45%</span><span class="pill g">✓ Done</span><span class="pill y">Warning</span><span class="pill r">Error</span><span class="pill p">AI</span></div></div><div class="comp-meta"><div class="comp-name">Status Pills</div><div class="comp-spec">padding: 4px 12px · border-radius: 9999px<br/>font: 13px/700 · BG: 10% opacity of status colour<br/>Blue / Green / Yellow / Red / Purple</div></div></div>
+  </div>
+</section>
+
+<!-- 09 NAVIGATION -->
+<section class="sec rev" id="navigation">
+  <div class="sec-hd">
+    <span class="sec-num">09</span>
+    <div><h2 class="sec-h">Navigation</h2><p class="sec-d">86px height, lives on the hero gradient, 170px gutters. Sign in (plain) + Get a Quote (bordered).</p></div>
+  </div>
+  <div class="nav-prev" style="margin-bottom:20px">
+    <div class="nav-logo-p">Versatile IT</div>
+    <div class="nav-links-p"><span class="nav-link-p on">Home</span><span class="nav-link-p">About</span><span class="nav-link-p">Services</span><span class="nav-link-p">Portfolio</span><span class="nav-link-p">Blog</span><span class="nav-link-p">Contact</span></div>
+    <div style="display:flex;gap:14px;align-items:center"><span style="font-size:13px;color:rgba(255,255,255,.8)">Sign in</span><div class="nav-cta-p">Get a Quote</div></div>
+  </div>
+  <div class="metric-row">
+    <div class="metric"><div class="metric-l">Nav Height</div><div class="metric-v">86px</div></div>
+    <div class="metric"><div class="metric-l">Menu Font</div><div class="metric-v">16px / 700</div><div class="metric-s">Active = bold, inactive = 400</div></div>
+    <div class="metric"><div class="metric-l">CTA Button</div><div class="metric-v">14px / 700</div><div class="metric-s">1px solid #fff, border-radius 10px</div></div>
+  </div>
+</section>
+
+<!-- 10 CARDS -->
+<section class="sec rev" id="cards">
+  <div class="sec-hd">
+    <span class="sec-num">10</span>
+    <div><h2 class="sec-h">Card Components</h2><p class="sec-d">Cards are the fundamental content unit. Always white, 10px radius, SM shadow, optional 1px #F5F5F5 border.</p></div>
+  </div>
+  <div class="comp-grid">
+    <div class="comp-card"><div class="comp-prev"><div class="stat-card"><div class="stat-ic">📈</div><div><div class="stat-lbl">All Traffic</div><div class="stat-val">574.34k</div></div></div></div><div class="comp-meta"><div class="comp-name">Dashboard Stat Card</div><div class="comp-spec">padding: 16px · border-radius: 10px<br/>border: 1px solid #F5F5F5 · Shadow SM<br/>Icon: 56×56px · Value: 24px/700</div></div></div>
+    <div class="comp-card"><div class="comp-prev" style="background:var(--surface)"><div style="background:#fff;border-radius:10px;padding:20px;box-shadow:var(--shadow-sm);width:180px"><div class="icon-bg sm" style="margin-bottom:12px">🤖</div><div style="font-size:15px;font-weight:700;color:#006FBA;margin-bottom:6px">AI-Powered Dev</div><div style="font-size:12px;color:#68718B;line-height:1.5">ML pipelines to automate workflows.</div></div></div><div class="comp-meta"><div class="comp-name">Feature Card</div><div class="comp-spec">padding: 24px · border-radius: 10px<br/>Icon badge: 64×64px gradient<br/>Title: 24px/700/#006FBA · Body: 16px/400</div></div></div>
+    <div class="comp-card"><div class="comp-prev dark"><div style="background:#fff;border-radius:10px;padding:16px 20px;width:170px;text-align:center;box-shadow:var(--shadow-sm)"><div style="background:#006EEA;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;margin:0 auto 10px">f</div><div style="font-size:14px;font-weight:700;color:#006FBA;margin-bottom:4px">Facebook</div><div style="font-size:11px;color:#68718B">Connect Ads data to your dashboard.</div></div></div><div class="comp-meta"><div class="comp-name">Integration Card (on dark bg)</div><div class="comp-spec">padding: 24px · border-radius: 10px<br/>Top pattern: #EBF7FF + border rect accent<br/>Icon: 64px brand-coloured · Title: #006FBA</div></div></div>
+    <div class="comp-card"><div class="comp-prev" style="padding:0;overflow:hidden;background:var(--surface);flex-direction:column;align-items:flex-start"><div style="height:80px;width:100%;background:linear-gradient(135deg,#dce7ff,#c4d2f6);display:flex;align-items:center;justify-content:center;font-size:30px;position:relative">🤖<div style="position:absolute;top:8px;left:10px;background:#FFAE00;padding:3px 7px;border-radius:5px;font-size:11px;color:#fff;font-weight:400">Technology</div></div><div style="padding:14px;background:#fff"><div style="font-size:15px;font-weight:700;color:#006FBA;letter-spacing:-.02em;margin-bottom:4px">How AI is Transforming Enterprise</div><div style="font-size:12px;color:#68718B;line-height:1.5">ML pipelines reshaping how teams deploy software.</div></div></div><div class="comp-meta"><div class="comp-name">Article Card</div><div class="comp-spec">Image: 351×196px · Body padding: 24px<br/>Tag: absolute, 5px radius, solid brand colour<br/>Title: 24px/700/#006FBA</div></div></div>
+  </div>
+</section>
+
+<!-- 11 BADGES -->
+<section class="sec rev" id="badges">
+  <div class="sec-hd">
+    <span class="sec-num">11</span>
+    <div><h2 class="sec-h">Badges & Tags</h2><p class="sec-d">Two families: rounded pills for status/data, and rectangular tags for categories.</p></div>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:28px 36px;box-shadow:var(--shadow-sm)">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:28px">
+      <span class="pill b">+2.45% ↑</span>
+      <span class="pill g">✓ Completed</span>
+      <span class="pill y">⚠ Warning</span>
+      <span class="pill r">✕ Error</span>
+      <span class="pill p">AI Powered</span>
+      <span style="display:inline-block;padding:4px 8px;border-radius:5px;font-size:13px;color:#fff;background:#FFAE00">Technology</span>
+      <span style="display:inline-block;padding:4px 8px;border-radius:5px;font-size:13px;color:#fff;background:#0097FE">Mobile Dev</span>
+      <span style="display:inline-block;padding:4px 8px;border-radius:5px;font-size:13px;color:#fff;background:#00C150">News</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="padding:14px;background:var(--surface);border-radius:8px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-grey);margin-bottom:8px">Status Pill</div><div style="font-size:12px;color:var(--text-grey);line-height:1.7;font-family:var(--mono)">border-radius: 9999px<br/>padding: 4px 12px<br/>font-size: 13px · font-weight: 700<br/>BG: 10% opacity of status colour</div></div>
+      <div style="padding:14px;background:var(--surface);border-radius:8px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-grey);margin-bottom:8px">Article Tag</div><div style="font-size:12px;color:var(--text-grey);line-height:1.7;font-family:var(--mono)">border-radius: 5px<br/>padding: 4px 8px<br/>font-size: 13–14px · font-weight: 400<br/>BG: solid brand colour</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 ICONS -->
+<section class="sec rev" id="icons">
+  <div class="sec-hd">
+    <span class="sec-num">12</span>
+    <div><h2 class="sec-h">Icon System</h2><p class="sec-d">Icons always live inside a badge container. The blue→darkest-blue gradient badge is the signature element.</p></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:14px;margin-bottom:20px">
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">🤖</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">AI / ML</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">📊</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Analytics</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">🔗</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Integrations</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">🛡️</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Security</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">📱</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Mobile</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">🌐</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Web Dev</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">📈</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Growth</div></div>
+    <div style="background:#fff;border-radius:10px;padding:18px 12px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid var(--light-grey)"><div class="icon-bg">⚙️</div><div style="font-size:11px;font-weight:700;color:var(--text-grey)">Settings</div></div>
+  </div>
+  <div style="background:#fff;border-radius:10px;padding:22px 28px;box-shadow:var(--shadow-sm)">
+    <div style="font-size:13px;font-weight:700;color:var(--heading);margin-bottom:10px">Icon Badge Spec</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+      <div style="font-size:12px;color:var(--text-grey);line-height:1.65"><strong style="color:var(--heading)">Size</strong><br/>64×64px standard<br/>48×48px compact</div>
+      <div style="font-size:12px;color:var(--text-grey);line-height:1.65"><strong style="color:var(--heading)">Shape</strong><br/>border-radius: 10px<br/>Never circular</div>
+      <div style="font-size:12px;color:var(--text-grey);line-height:1.65;font-family:var(--mono);font-size:11px"><strong style="color:var(--heading);font-family:var(--font);font-size:12px">Fill</strong><br/>linear-gradient(<br/>52.37deg,<br/>#0097FE, #14358A)</div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 MOTION -->
+<section class="sec rev" id="motion">
+  <div class="sec-hd">
+    <span class="sec-num">13</span>
+    <div><h2 class="sec-h">Motion & Animation</h2><p class="sec-d">Purposeful animations that reinforce trust. Every animation has a role — no decorative motion without function.</p></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="m-card"><div class="m-demo"><div class="m-box a1"></div></div><div class="m-name">Fade Up — Scroll Reveal</div><div class="m-spec">opacity: 0→1 · translateY: 24px→0<br/>duration: 500ms · easing: ease<br/>trigger: IntersectionObserver (12% threshold)<br/>Used: All section content on scroll in</div></div>
+    <div class="m-card"><div class="m-demo"><div class="m-box a2"></div></div><div class="m-name">Float — Hero Illustration</div><div class="m-spec">translateY: 0 → -8px → 0<br/>duration: 6s · easing: ease-in-out<br/>iteration: infinite<br/>Used: Donut card, feature illustrations</div></div>
+    <div class="m-card"><div class="m-demo"><div class="m-box a4"></div></div><div class="m-name">Stagger — Hero Load</div><div class="m-spec">opacity: 0→1 · translateY: 28px→0<br/>duration: 700ms · easing: ease<br/>delays: 100ms / 250ms / 400ms / 500ms<br/>Used: Navbar, H1, CTAs, dashboard</div></div>
+    <div class="m-card"><div class="m-demo"><div class="m-box a3"></div></div><div class="m-name">Hover Lift — Cards</div><div class="m-spec">translateY: 0 → -4px<br/>box-shadow: escalate 1 level<br/>duration: 200ms · easing: ease<br/>Used: Integration cards, article cards</div></div>
+  </div>
+  <div style="background:#fff;border-radius:10px;padding:22px 28px;box-shadow:var(--shadow-sm);margin-top:16px">
+    <div style="font-size:13px;font-weight:700;color:var(--heading);margin-bottom:8px">Counter Animation</div>
+    <div style="font-size:13px;color:var(--text-grey);line-height:1.7">Dashboard stat values count from 0 to target on load via <code style="font-family:var(--mono);background:var(--surface);padding:2px 6px;border-radius:4px">requestAnimationFrame</code> with cubic-ease-out. Duration: <strong>1600ms</strong>. Used for project counts, satisfaction %, revenue metrics.</div>
+  </div>
+</section>
+
+<!-- 14 LAYOUT -->
+<section class="sec rev" id="layout">
+  <div class="sec-hd">
+    <span class="sec-num">14</span>
+    <div><h2 class="sec-h">Layout & Grid System</h2><p class="sec-d">Four primary layout patterns used across the site. All centred within a 1100px max-width container.</p></div>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:28px 32px;box-shadow:var(--shadow-sm);margin-bottom:16px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-grey);margin-bottom:14px">1440px · 12-Column Foundation</div>
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:7px">
+      <div class="lay-box">1</div><div class="lay-box">2</div><div class="lay-box">3</div><div class="lay-box">4</div><div class="lay-box">5</div><div class="lay-box">6</div><div class="lay-box">7</div><div class="lay-box">8</div><div class="lay-box">9</div><div class="lay-box">10</div><div class="lay-box">11</div><div class="lay-box">12</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
+    <div style="background:#fff;border-radius:10px;padding:20px 24px;box-shadow:var(--shadow-sm)">
+      <div style="font-size:12px;font-weight:700;color:var(--heading);margin-bottom:10px">3-Col Asymmetric (Why Section)</div>
+      <div style="display:grid;grid-template-columns:233px 1fr 233px;gap:6px;font-size:10px;font-family:var(--mono)">
+        <div class="lay-box">233px<br/>Features</div><div class="lay-box">1fr<br/>Illustration</div><div class="lay-box">233px<br/>Features</div>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:var(--text-grey)">gap: 36px · Stacks at 1200px breakpoint</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:20px 24px;box-shadow:var(--shadow-sm)">
+      <div style="font-size:12px;font-weight:700;color:var(--heading);margin-bottom:10px">2-Col Alternating (Features)</div>
+      <div style="display:grid;grid-template-columns:480px 1fr;gap:6px;font-size:10px;font-family:var(--mono)">
+        <div class="lay-box">480px<br/>Text + CTA</div><div class="lay-box">509px<br/>Illustration</div>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:var(--text-grey)">gap: 111px · Row reverses: text right / illo left</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:20px 24px;box-shadow:var(--shadow-sm)">
+      <div style="font-size:12px;font-weight:700;color:var(--heading);margin-bottom:10px">3-Col Cards (Integrations, Articles)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:10px;font-family:var(--mono)">
+        <div class="lay-box">284px</div><div class="lay-box">284px</div><div class="lay-box">284px</div>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:var(--text-grey)">Fixed 284px cards · gap: 24px · justify: center</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:20px 24px;box-shadow:var(--shadow-sm)">
+      <div style="font-size:12px;font-weight:700;color:var(--heading);margin-bottom:10px">5-Col Footer</div>
+      <div style="display:grid;grid-template-columns:304px 1fr 1fr 1fr 1fr;gap:4px;font-size:9px;font-family:var(--mono)">
+        <div class="lay-box">304px<br/>Brand</div><div class="lay-box">1fr<br/>Pages</div><div class="lay-box">1fr<br/>Services</div><div class="lay-box">1fr<br/>Help</div><div class="lay-box">1fr<br/>Contact</div>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:var(--text-grey)">gap: 48px · footer padding: 80px 0 40px</div>
+    </div>
+  </div>
+  <!-- Breakpoints -->
+  <div style="background:#fff;border-radius:10px;padding:22px 28px;box-shadow:var(--shadow-sm)">
+    <div style="font-size:13px;font-weight:700;color:var(--heading);margin-bottom:14px">Responsive Breakpoints</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border:1.5px solid var(--blue);border-radius:8px"><div style="font-size:18px;font-weight:700;color:var(--heading)">1440px</div><div style="font-size:11px;color:var(--text-grey)">Full desktop<br/>170px gutters</div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border:1.5px solid var(--light-grey);border-radius:8px"><div style="font-size:18px;font-weight:700;color:var(--heading)">1200px</div><div style="font-size:11px;color:var(--text-grey)">Large laptop<br/>40px gutters, why-grid stacks</div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border:1.5px solid var(--light-grey);border-radius:8px"><div style="font-size:18px;font-weight:700;color:var(--heading)">768px</div><div style="font-size:11px;color:var(--text-grey)">Tablet<br/>Hide nav menu, H1 → 32px</div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border:1.5px solid var(--light-grey);border-radius:8px"><div style="font-size:18px;font-weight:700;color:var(--heading)">375px</div><div style="font-size:11px;color:var(--text-grey)">Mobile<br/>Single column, 24px gutters</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 DOS & DONTS -->
+<section class="sec rev" id="dosdont">
+  <div class="sec-hd">
+    <span class="sec-num">15</span>
+    <div><h2 class="sec-h">Do's & Don'ts</h2><p class="sec-d">Brand guardrails to maintain consistency and premium quality across all design touchpoints.</p></div>
+  </div>
+  <div class="dd-grid">
+    <div class="dd do">
+      <div class="dd-hd">✓ Do</div>
+      <div class="dd-body">
+        <div class="dd-li"><span class="dd-ic">✓</span>Use DM Sans exclusively at all weights (300–700)</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Apply −0.03em letter-spacing on all headings H1–H4</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Use the purple gradient for the single highest-priority CTA</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Keep heading colours in the blue family (#14358A / #006FBA / #03133D)</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Always pair cards with the blue-tinted shadow system</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Float illustrations with the 6s ease-in-out keyframe</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Use 8px grid multiples for all spacing values</div>
+        <div class="dd-li"><span class="dd-ic">✓</span>Place icon badges in the blue→darkest-blue gradient only</div>
+      </div>
+    </div>
+    <div class="dd dont">
+      <div class="dd-hd">✕ Don't</div>
+      <div class="dd-body">
+        <div class="dd-li"><span class="dd-ic">✗</span>Never use Inter, Roboto, Arial, or system-ui</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never use the purple gradient for secondary or tertiary actions</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never stretch the hero gradient beyond 84° angle</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never use pure #000 for text — use #03133D or #1B2559</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never remove shadows from cards, even on white backgrounds</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never use border-radius above 16px on cards or buttons</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never place 3+ CTAs side-by-side without clear hierarchy</div>
+        <div class="dd-li"><span class="dd-ic">✗</span>Never use the error colour (#EF4444) for decorative purposes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div><strong>Versatile IT Solutions</strong> · Design System v1.0<br/>Built on Saasly Figma Template · DM Sans · March 2025</div>
+  <div style="text-align:right">Questions about implementation?<br/><strong>design@versatileitsol.com</strong></div>
+</div>
+
+</main>
+</div>
+
+<script>
+const revs=document.querySelectorAll('.rev');
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08});
+revs.forEach(el=>io.observe(el));
+
+const secs=document.querySelectorAll('section[id],div[id]');
+const links=document.querySelectorAll('.sb-a');
+const sio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('on'));
+      const a=document.querySelector(`.sb-a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('on');
+    }
+  });
+},{threshold:.35});
+secs.forEach(s=>sio.observe(s));
+</script>
+</body>
+</html>

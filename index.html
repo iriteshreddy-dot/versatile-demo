@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Versatile IT Solutions — Your Innovation Partners for the Digital Age</title>
+<meta name="description" content="Top Web and Mobile App Development Company. 12+ years, 300+ projects, 4 countries. ML/AI, Web, Mobile, UX/UI, Digital Marketing, SAP Consulting."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+/* ═══ HOME-SPECIFIC ═══ */
+.hero{background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);padding:160px 0 100px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-120px;top:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,151,254,.25) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;left:-80px;bottom:-120px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(106,54,255,.18) 0%,transparent 70%);pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-pill);padding:6px 18px;font-size:12px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px;backdrop-filter:blur(4px)}
+.hero h1{font-size:54px;font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
+.hero h1 em{font-style:normal;background:linear-gradient(112.8deg,#AC5FE6,#0097FE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.7);line-height:1.5;max-width:480px;margin-bottom:36px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.hero-trust{display:flex;gap:32px;flex-wrap:wrap}
+.hero-trust-item{display:flex;flex-direction:column;gap:2px}
+.hero-trust-val{font-size:28px;font-weight:700;color:#fff;letter-spacing:-.03em}
+.hero-trust-lbl{font-size:12px;color:rgba(255,255,255,.45);font-weight:500}
+.hero-visual{position:relative}
+.hero-img-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.hero-img-wrap img{width:100%;border-radius:var(--r-lg)}
+.hero-float{position:absolute;background:#fff;border-radius:var(--r);padding:14px 18px;box-shadow:var(--shadow-md);animation:floatY 6s ease-in-out infinite}
+.hero-float.c1{bottom:-18px;left:-24px}
+.hero-float.c2{top:-14px;right:-18px;animation-delay:1.5s}
+.hf-lbl{font-size:11px;color:var(--border)}.hf-val{font-size:22px;font-weight:700;color:var(--heading);letter-spacing:-.03em}.hf-tag{font-size:12px;font-weight:700;color:var(--success)}
+
+/* services strip */
+.svc-strip{background:#fff;padding:64px 0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:var(--surface);border-radius:var(--r);padding:28px;border:1px solid var(--light-grey);transition:transform .25s,box-shadow .25s}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.svc-card .icon-badge{margin-bottom:18px}
+.svc-card h3{font-size:18px;font-weight:700;color:var(--blue-dark);letter-spacing:-.02em;margin-bottom:8px}
+.svc-card p{font-size:14px;color:var(--text-grey);line-height:1.55;margin-bottom:14px}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.svc-tags span{padding:3px 10px;background:var(--blue-light);border-radius:4px;font-size:11px;font-weight:700;color:var(--blue)}
+
+/* why strip */
+.why{background:var(--surface)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.why-img img{max-width:380px;border-radius:var(--r-lg);filter:drop-shadow(0 24px 64px rgba(106,54,255,.18))}
+.why-content h2{font-size:44px;font-weight:700;color:var(--blue-darkest);letter-spacing:-.03em;line-height:1.08;margin-bottom:16px}
+.why-content>p{font-size:17px;color:var(--text-grey);line-height:1.6;margin-bottom:28px}
+.why-features{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wf{padding:20px;background:#fff;border-radius:var(--r);border-left:3px solid var(--blue);transition:box-shadow .2s}
+.wf:hover{box-shadow:var(--shadow-sm)}
+.wf:nth-child(2){border-left-color:var(--purple-start)}
+.wf:nth-child(3){border-left-color:var(--success)}
+.wf:nth-child(4){border-left-color:var(--warning)}
+.wf h4{font-size:14px;font-weight:700;color:var(--heading);margin-bottom:4px}
+.wf p{font-size:13px;color:var(--text-grey);line-height:1.5}
+
+/* cta band */
+.cta-band{background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);padding:72px 0;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,151,254,.12),transparent 70%);pointer-events:none}
+.cta-band h2{font-size:40px;font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:14px;position:relative;z-index:1}
+.cta-band p{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:32px;position:relative;z-index:1}
+.cta-band .btn-purple{position:relative;z-index:1}
+
+/* testi strip */
+.testi-track{display:flex;gap:24px;animation:scrollX 35s linear infinite}
+.testi-track:hover{animation-play-state:paused}
+
+/* clients logo strip */
+.logo-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;padding:8px 0}
+.logo-pill{padding:10px 20px;background:#fff;border-radius:var(--r);border:1px solid var(--light-grey);font-size:13px;font-weight:700;color:var(--text-grey);box-shadow:var(--shadow-sm);transition:transform .2s,border-color .2s}
+.logo-pill:hover{transform:translateY(-2px);border-color:var(--blue)}
+
+@media(max-width:900px){
+  .hero-inner,.why-grid{grid-template-columns:1fr;gap:40px}
+  .svc-grid{grid-template-columns:1fr}
+  .why-features{grid-template-columns:1fr}
+  .hero{padding:120px 0 80px}
+  .hero h1{font-size:36px}
+  .why-content h2{font-size:34px}
+  .hero-visual{order:-1}
+}
+@media(max-width:600px){
+  .hero h1{font-size:30px}
+  .hero-trust{gap:20px}
+  .testi-card{width:300px;padding:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap" id="navbar">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="clients.html" class="nav-link">Clients</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-chip rv rv-d1">&#10022; Innovation Partners</div>
+        <h1 class="rv rv-d2">Top IT Solutions to<br/><em>Grow Your Business</em></h1>
+        <p class="hero-sub rv rv-d3">For the last 12+ years, we've sky-rocketed the growth of our partners and customers through our innovation in strategy and technology.</p>
+        <div class="hero-btns rv rv-d3">
+          <a href="contact.html" class="btn-purple">Get a Free Quote</a>
+          <a href="portfolio.html" class="btn-outline-w">View Our Work &#8250;</a>
+        </div>
+        <div class="hero-trust rv rv-d4">
+          <div class="hero-trust-item"><div class="hero-trust-val" data-count="12" data-suffix="+">0+</div><div class="hero-trust-lbl">Years Experience</div></div>
+          <div class="hero-trust-item"><div class="hero-trust-val" data-count="300" data-suffix="+">0+</div><div class="hero-trust-lbl">Projects Delivered</div></div>
+          <div class="hero-trust-item"><div class="hero-trust-val" data-count="4" data-suffix="">0</div><div class="hero-trust-lbl">Countries</div></div>
+          <div class="hero-trust-item"><div class="hero-trust-val" data-count="98" data-suffix="%">0%</div><div class="hero-trust-lbl">Satisfaction</div></div>
+        </div>
+      </div>
+      <div class="hero-visual rv rv-d2">
+        <div class="hero-img-wrap"><img src="Images/CTA  CONVERSION SECTION.png" alt="Versatile IT team at work" loading="eager"/></div>
+        <div class="hero-float c1"><div class="hf-lbl">Projects</div><div class="hf-val">300+</div><div class="hf-tag">+24% this year</div></div>
+        <div class="hero-float c2"><div class="hf-lbl">Satisfaction</div><div class="hf-val">98%</div><div class="hf-tag">&#10003; Industry leading</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="container">
+  <div class="stats-bar rv">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><div class="stat-num"><span data-count="12">0</span><span class="suffix">+</span></div><div class="stat-label">Years of Experience</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-count="300">0</span><span class="suffix">+</span></div><div class="stat-label">Projects Completed</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-count="180">0</span><span class="suffix">+</span></div><div class="stat-label">Global Clients</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-count="98">0</span><span class="suffix">%</span></div><div class="stat-label">Client Satisfaction</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES STRIP -->
+<section class="sec svc-strip" id="services-strip">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Our Services</div>
+      <h2 class="sec-title rv rv-d1">End-to-End Digital Solutions</h2>
+      <p class="sec-desc rv rv-d2">From AI-powered platforms to enterprise SAP consulting — the full spectrum of digital services.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rv">
+        <div class="icon-badge">&#129302;</div>
+        <h3>ML &amp; AI Services</h3>
+        <p>High-accuracy ML and AI capabilities for scalable, cost-efficient digital products and solutions.</p>
+        <div class="svc-tags"><span>Machine Learning</span><span>NLP</span><span>Computer Vision</span><span>BI</span></div>
+      </div>
+      <div class="svc-card rv rv-d1">
+        <div class="icon-badge">&#128187;</div>
+        <h3>Web Development</h3>
+        <p>At the forefront of web development, crafting digital solutions that drive businesses forward.</p>
+        <div class="svc-tags"><span>React</span><span>Angular</span><span>Node JS</span><span>PHP</span></div>
+      </div>
+      <div class="svc-card rv rv-d2">
+        <div class="icon-badge">&#128241;</div>
+        <h3>Mobile Apps</h3>
+        <p>Human-centric apps with seamless design across Android, iOS, and wearable platforms.</p>
+        <div class="svc-tags"><span>Android</span><span>iOS</span><span>Ionic</span><span>Wearables</span></div>
+      </div>
+      <div class="svc-card rv">
+        <div class="icon-badge">&#127912;</div>
+        <h3>UX &amp; UI Design</h3>
+        <p>Creating visual identities that are authentic through logo design, brand identity and collaterals.</p>
+        <div class="svc-tags"><span>Prototypes</span><span>Wireframes</span><span>App Design</span></div>
+      </div>
+      <div class="svc-card rv rv-d1">
+        <div class="icon-badge">&#128200;</div>
+        <h3>Digital Marketing</h3>
+        <p>Tailor-made digital strategies ensuring maximum reach to your target audience.</p>
+        <div class="svc-tags"><span>SEO</span><span>SMM</span><span>SEM</span><span>PPC</span></div>
+      </div>
+      <div class="svc-card rv rv-d2">
+        <div class="icon-badge">&#9881;&#65039;</div>
+        <h3>SAP Consulting</h3>
+        <p>From planning to execution, guiding you through SAP implementation for seamless transitions.</p>
+        <div class="svc-tags"><span>ABAP</span><span>ADT</span><span>AMDP</span><span>API</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="rv">
+      <a href="services.html" class="btn-outline-b">View All Services &#8250;</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="sec why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-img rv"><img src="Images/FEATURES  WHY US SECTION.png" alt="Creative brainstorming"/></div>
+      <div class="why-content">
+        <div class="sec-chip rv">Why Choose Us</div>
+        <h2 class="rv rv-d1">Looking to Build<br/>Your Business?</h2>
+        <p class="rv rv-d2">With over 10 years of experience spanning all major domains, we are an end-to-end solution. Our experts and industry leaders are ready to take on your project.</p>
+        <div class="why-features rv rv-d3">
+          <div class="wf"><h4>Creative Brainstorming</h4><p>Brainstorming across departments to curate the best and most viable options.</p></div>
+          <div class="wf"><h4>Long Term Alliance</h4><p>Your partners through it all — your outsourced team, working with you.</p></div>
+          <div class="wf"><h4>Domain Expertise</h4><p>FinTech, Healthcare, E-commerce, Logistics, EdTech and more.</p></div>
+          <div class="wf"><h4>Global Delivery</h4><p>India, USA, Dubai & Netherlands — round-the-clock delivery.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2 class="rv">Ready to Cause a Phase-Shift?</h2>
+    <p class="rv rv-d1">End-to-end digital transformation — strategy, design, development, and growth.</p>
+    <a href="contact.html" class="btn-purple rv rv-d2">Book a Discovery Call</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" style="background:#fff">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Testimonials</div>
+      <h2 class="sec-title rv rv-d1">What Our Clients Say</h2>
+    </div>
+  </div>
+  <div style="overflow:hidden;padding:8px 0">
+    <div class="testi-track">
+      <div class="testi-card"><div class="testi-quote">Time and effort invested to complete prior to deadline while ensuring quality at every phase. You are a valued member of our team!</div><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">Vamshi Krishna Mohan</div><div class="testi-role">Director — Return My Ticket</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Really appreciate getting the U Cars Mobile app ready per timeline with great quality. Everything has come together and we're ready to publish!</div><div class="testi-author"><div class="testi-avatar">MS</div><div><div class="testi-name">Mohd Salman Hussain</div><div class="testi-role">AppNetco — UAE</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Thank you for completing the project on-time. Extremely happy with post-production support. Sincere thanks to your team.</div><div class="testi-author"><div class="testi-avatar">SM</div><div><div class="testi-name">Satyanarayana Mathala</div><div class="testi-role">President — Facility Management Council</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Professional, attentive, highly skilled team. App achieved significant downloads and high user retention with active daily users.</div><div class="testi-author"><div class="testi-avatar">RR</div><div><div class="testi-name">Rohit Raj</div><div class="testi-role">Head of Operations — Sacred Beast</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Quality code delivered at good price. High quality majority of work. Dedication to on-time delivery is their hallmark.</div><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">Vikram Kulkarni</div><div class="testi-role">CEO — HealthX Technologies AB</div></div></div></div>
+      <!-- duplicate set for infinite scroll -->
+      <div class="testi-card"><div class="testi-quote">Time and effort invested to complete prior to deadline while ensuring quality at every phase. You are a valued member of our team!</div><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">Vamshi Krishna Mohan</div><div class="testi-role">Director — Return My Ticket</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Really appreciate getting the U Cars Mobile app ready per timeline with great quality. Everything has come together and we're ready to publish!</div><div class="testi-author"><div class="testi-avatar">MS</div><div><div class="testi-name">Mohd Salman Hussain</div><div class="testi-role">AppNetco — UAE</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Thank you for completing the project on-time. Extremely happy with post-production support. Sincere thanks to your team.</div><div class="testi-author"><div class="testi-avatar">SM</div><div><div class="testi-name">Satyanarayana Mathala</div><div class="testi-role">President — Facility Management Council</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Professional, attentive, highly skilled team. App achieved significant downloads and high user retention with active daily users.</div><div class="testi-author"><div class="testi-avatar">RR</div><div><div class="testi-name">Rohit Raj</div><div class="testi-role">Head of Operations — Sacred Beast</div></div></div></div>
+      <div class="testi-card"><div class="testi-quote">Quality code delivered at good price. High quality majority of work. Dedication to on-time delivery is their hallmark.</div><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">Vikram Kulkarni</div><div class="testi-role">CEO — HealthX Technologies AB</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS STRIP -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Trusted By</div>
+      <h2 class="sec-title rv rv-d1">180+ Clients Worldwide</h2>
+    </div>
+    <div class="logo-strip rv">
+      <span class="logo-pill">Godrej</span><span class="logo-pill">Govt. of Telangana</span><span class="logo-pill">GHMC</span><span class="logo-pill">Imimobile</span><span class="logo-pill">Gati</span><span class="logo-pill">NTV</span><span class="logo-pill">PurpleTalk</span><span class="logo-pill">NAAS Tech</span><span class="logo-pill">WS Audiology</span><span class="logo-pill">Al-Masaood</span><span class="logo-pill">Sacred Beast</span><span class="logo-pill">HealthX</span><span class="logo-pill">SysUSA</span><span class="logo-pill">Snapeats</span><span class="logo-pill">Red Rhino</span><span class="logo-pill">Wrkman</span>
+    </div>
+    <div style="text-align:center;margin-top:32px" class="rv"><a href="clients.html" class="btn-outline-b">View All Clients &#8250;</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><div class="footer-logo-mark">V</div>Versatile IT Solutions</div>
+        <p class="footer-desc">Your innovation partners for the digital age. 12+ years of sky-rocketing business growth through strategy and technology.</p>
+        <div class="footer-pills"><span>India</span><span>USA</span><span>Dubai</span><span>Netherlands</span></div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <a href="services.html">ML &amp; AI</a><a href="services.html">Web Development</a><a href="services.html">Mobile Apps</a><a href="services.html">UX/UI Design</a><a href="services.html">Digital Marketing</a><a href="services.html">SAP Consulting</a><a href="services.html">Staff Augmentation</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="tel:+919701930011">&#127470;&#127475; +91 970 193 0011</a><a href="tel:+19342217261">&#127482;&#127480; +1 934 221 7261</a><a href="tel:+971553166156">&#127462;&#127466; +971 55 316 6156</a><a href="tel:+31620048269">&#127475;&#127473; +31 6200 48 269</a><a href="mailto:sales@versatileitsol.com" style="margin-top:8px;color:rgba(255,255,255,.8)">sales@versatileitsol.com</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div>
+      <div class="footer-socials"><a href="#" class="footer-social" aria-label="LinkedIn">in</a><a href="#" class="footer-social" aria-label="Twitter">X</a><a href="#" class="footer-social" aria-label="Facebook">f</a><a href="#" class="footer-social" aria-label="YouTube">&#9654;</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

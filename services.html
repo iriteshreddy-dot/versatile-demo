@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Services — Versatile IT Solutions</title>
+<meta name="description" content="ML/AI, Web Development, Mobile Apps, UX/UI Design, Digital Marketing, SAP Consulting, Staff Augmentation and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+/* service detail rows */
+.svc-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding:72px 0;border-bottom:1px solid var(--light-grey)}
+.svc-row:last-child{border-bottom:none}
+.svc-row.rev{direction:rtl}
+.svc-row.rev>*{direction:ltr}
+.svc-row-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.svc-row-img img{width:100%;display:block}
+.svc-row-img.gradient{display:flex;align-items:center;justify-content:center;min-height:320px;font-size:72px}
+.svc-row-body .sec-chip{margin-bottom:12px}
+.svc-row-body h2{font-size:36px;font-weight:700;color:var(--blue-dark);letter-spacing:-.03em;line-height:1.08;margin-bottom:14px}
+.svc-row-body>p{font-size:16px;color:var(--text-grey);line-height:1.6;margin-bottom:22px}
+.svc-sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.svc-sub{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--surface);border-radius:8px;font-size:14px;font-weight:500;color:var(--body)}
+.svc-sub::before{content:'';width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-darkest));flex-shrink:0}
+
+/* extra services compact grid */
+.extra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.extra-card{background:#fff;border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);text-align:center;transition:transform .2s,box-shadow .2s}
+.extra-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.extra-card .icon-badge{margin:0 auto 16px}
+.extra-card h4{font-size:16px;font-weight:700;color:var(--heading);margin-bottom:8px}
+.extra-card p{font-size:13px;color:var(--text-grey);line-height:1.55}
+
+@media(max-width:900px){
+  .svc-row,.svc-row.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
+  .svc-sub-grid{grid-template-columns:1fr}
+  .extra-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .extra-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap solid" id="navbar">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link active">Services</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="clients.html" class="nav-link">Clients</a><a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
+    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="sec-chip dark rv">Our Services</div>
+    <h1 class="rv rv-d1">End-to-End Digital Solutions</h1>
+    <p class="rv rv-d2">From ML & AI to enterprise SAP consulting — everything your business needs to thrive in the digital age.</p>
+    <div class="breadcrumb rv rv-d3"><a href="index.html">Home</a><span>/</span><span>Services</span></div>
+  </div>
+</section>
+
+<!-- SERVICE ROWS -->
+<section style="background:#fff">
+  <div class="container">
+
+    <!-- ML & AI -->
+    <div class="svc-row rv" id="ml-ai">
+      <div class="svc-row-img gradient" style="background:linear-gradient(135deg,#0D1B3E,#1B45B4)">&#129302;</div>
+      <div class="svc-row-body">
+        <div class="sec-chip">ML &amp; AI Services</div>
+        <h2>Machine Learning &amp; Artificial Intelligence</h2>
+        <p>Our services around ML and AI assist you gain high-quality, high-accuracy capabilities that modify building extremely scalable and cost-efficient digital products and solutions.</p>
+        <div class="svc-sub-grid">
+          <div class="svc-sub">Machine Learning Development</div>
+          <div class="svc-sub">Predictive Analytics</div>
+          <div class="svc-sub">Natural Language Processing</div>
+          <div class="svc-sub">Computer Vision Solutions</div>
+          <div class="svc-sub">Business Intelligence &amp; Analytics</div>
+        </div>
+        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+      </div>
+    </div>
+
+    <!-- Web Development -->
+    <div class="svc-row rev rv" id="web-dev">
+      <div class="svc-row-img"><img src="Images/Web Development.png" alt="Web Development"/></div>
+      <div class="svc-row-body">
+        <div class="sec-chip">Web Development</div>
+        <h2>Web Design &amp; Development</h2>
+        <p>We are at the forefront of web development, crafting digital solutions that drive businesses forward. We flawlessly program your website to ensure every aspect tells a story.</p>
+        <div class="svc-sub-grid">
+          <div class="svc-sub">Angular Development</div>
+          <div class="svc-sub">React JS Development</div>
+          <div class="svc-sub">Node JS Development</div>
+          <div class="svc-sub">MongoDB Development</div>
+          <div class="svc-sub">PHP Development</div>
+        </div>
+        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+      </div>
+    </div>
+
+    <!-- Mobile Apps -->
+    <div class="svc-row rv" id="mobile">
+      <div class="svc-row-img"><img src="Images/Mobile App Development.png" alt="Mobile App Development"/></div>
+      <div class="svc-row-body">
+        <div class="sec-chip">Mobile Development</div>
+        <h2>Mobile Application Development</h2>
+        <p>We build human-centric apps with seamless design across Android and iOS. Transform your business with proactive mobile solutions designed to enhance productivity and efficiency.</p>
+        <div class="svc-sub-grid">
+          <div class="svc-sub">Android Apps Development</div>
+          <div class="svc-sub">iOS Apps Development</div>
+          <div class="svc-sub">Ionic Apps Development</div>
+          <div class="svc-sub">Wearable Apps Development</div>
+        </div>
+        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+      </div>
+    </div>
+
+    <!-- UX/UI -->
+    <div class="svc-row rev rv" id="ux-ui">
+      <div class="svc-row-img"><img src="Images/UX & UI Design.png" alt="UX & UI Design"/></div>
+      <div class="svc-row-body">
+        <div class="sec-chip">UX &amp; UI Design</div>
+        <h2>UX &amp; UI Design</h2>
+        <p>Bringing imagination to life by creating a visual identity that's authentic through solutions in logo design, brand identity and collaterals.</p>
+        <div class="svc-sub-grid">
+          <div class="svc-sub">Prototypes</div>
+          <div class="svc-sub">Wireframe Design</div>
+          <div class="svc-sub">Application Design</div>
+          <div class="svc-sub">Web Design</div>
+        </div>
+        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+      </div>
+    </div>
+
+    <!-- Digital Marketing -->
+    <div class="svc-row rv" id="marketing">
+      <div class="svc-row-img gradient" style="background:linear-gradient(135deg,#14358A,#6A36FF)">&#128200;</div>
+      <div class="svc-row-body">
+        <div class="sec-chip">Digital Marketing</div>
+        <h2>Digital Marketing &amp; SEO</h2>
+        <p>We harness data to help you make better human connections, building social equity through organic and paid means with tailor-made digital strategies.</p>
+        <div class="svc-sub-grid">
+          <div class="svc-sub">Search Engine Optimization</div>
+          <div class="svc-sub">Social Media Marketing</div>
+          <div class="svc-sub">Social Media Optimization</div>
+          <div class="svc-sub">Search Engine Marketing</div>
+          <div class="svc-sub">Pay-per-click (PPC)</div>
+        </div>
+        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+      </div>
+    </div>
+
+    <!-- SAP Consulting -->
+    <div class="svc-row rev rv" id="sap">
+      <div class="svc-row-img gradient" style="background:linear-gradient(135deg,#1C2792,#006FBA)">&#9881;&#65039;</div>
+      <div class="svc-row-body">
+        <div class="sec-chip">SAP Consulting</div>
+        <h2>SAP Consulting Services</h2>
+        <p>From planning to execution, we guide you through the SAP implementation process to ensure a seamless transition and maximize your enterprise ROI.</p>
+        <div class="svc-sub-grid">
+          <div class="svc-sub">ABAP Cloud</div>
+          <div class="svc-sub">ABAP Development Tools (ADT)</div>
+          <div class="svc-sub">ABAP Managed DB Procedures</div>
+          <div class="svc-sub">Application Programming Interface</div>
+        </div>
+        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXTRA SERVICES -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">More Services</div>
+      <h2 class="sec-title rv rv-d1">Beyond the Core</h2>
+    </div>
+    <div class="extra-grid">
+      <div class="extra-card rv"><div class="icon-badge">&#128101;</div><h4>Staff Augmentation</h4><p>Build your team up and down with ease. Tailored solutions with seamless integration and continuous support.</p></div>
+      <div class="extra-card rv rv-d1"><div class="icon-badge">&#127963;</div><h4>Enterprise Solutions</h4><p>Strengthen your company's existing information management system with scalable technology solutions.</p></div>
+      <div class="extra-card rv rv-d2"><div class="icon-badge">&#128225;</div><h4>Internet of Things</h4><p>Define, Build & Run IoT solutions catering to organizations at different IoT adoption levels.</p></div>
+      <div class="extra-card rv rv-d3"><div class="icon-badge">&#128161;</div><h4>IT Consulting</h4><p>Explore the true potential of a blank canvas with a trusted partner to help you lead the digital era.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);padding:72px 0;text-align:center">
+  <div class="container" style="position:relative;z-index:1">
+    <h2 style="font-size:40px;font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:14px" class="rv">Have a Project in Mind?</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,.6);margin-bottom:32px" class="rv rv-d1">Let's discuss how we can bring your vision to life.</p>
+    <a href="contact.html" class="btn-purple rv rv-d2">Start Your Project</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-mark">V</div>Versatile IT Solutions</div><p class="footer-desc">Your innovation partners for the digital age.</p><div class="footer-pills"><span>India</span><span>USA</span><span>Dubai</span><span>Netherlands</span></div></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="#ml-ai">ML &amp; AI</a><a href="#web-dev">Web Dev</a><a href="#mobile">Mobile Apps</a><a href="#ux-ui">UX/UI</a><a href="#marketing">Digital Marketing</a><a href="#sap">SAP</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:+919701930011">&#127470;&#127475; +91 970 193 0011</a><a href="tel:+19342217261">&#127482;&#127480; +1 934 221 7261</a><a href="mailto:sales@versatileitsol.com" style="margin-top:8px;color:rgba(255,255,255,.8)">sales@versatileitsol.com</a></div>
+    </div>
+    <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

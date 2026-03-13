@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us — Versatile IT Solutions</title>
+<meta name="description" content="Get in touch with Versatile IT Solutions. Offices in India, USA, Dubai, Netherlands. Let's discuss your project."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.contact-left{display:flex;flex-direction:column;gap:28px}
+.contact-img{max-width:300px;margin:0 auto 8px}
+.contact-card{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);border:1px solid var(--light-grey);display:flex;align-items:flex-start;gap:16px}
+.contact-card .icon-badge{flex-shrink:0}
+.cc-label{font-size:12px;color:var(--text-grey);font-weight:500}
+.cc-val{font-size:15px;font-weight:700;color:var(--heading);margin-top:2px}
+.cc-sub{font-size:13px;color:var(--text-grey);margin-top:4px;line-height:1.5}
+.contact-channels{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ch-card{background:#fff;border-radius:var(--r);padding:18px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid var(--light-grey);transition:transform .2s,border-color .2s}
+.ch-card:hover{transform:translateY(-2px);border-color:var(--blue)}
+.ch-icon{font-size:24px;margin-bottom:8px}
+.ch-label{font-size:12px;font-weight:700;color:var(--heading)}
+.ch-val{font-size:12px;color:var(--text-grey);font-family:var(--mono);margin-top:2px}
+
+.contact-form-wrap{background:var(--surface);border-radius:var(--r-lg);padding:40px;border:1px solid var(--light-grey)}
+.contact-form-wrap h2{font-size:32px;font-weight:700;color:var(--blue-darkest);letter-spacing:-.03em;margin-bottom:8px}
+.contact-form-wrap>p{font-size:15px;color:var(--text-grey);margin-bottom:28px;line-height:1.5}
+
+/* offices section */
+.off-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.off-card{background:#fff;border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);border-top:3px solid var(--blue);transition:transform .2s}
+.off-card:hover{transform:translateY(-3px)}
+.off-card:nth-child(2){border-top-color:var(--purple-start)}
+.off-card:nth-child(3){border-top-color:var(--success)}
+.off-card:nth-child(4){border-top-color:var(--warning)}
+.off-flag{font-size:32px;margin-bottom:10px}
+.off-card h4{font-size:16px;font-weight:700;color:var(--heading);margin-bottom:6px}
+.off-card p{font-size:13px;color:var(--text-grey);line-height:1.55;margin-bottom:8px}
+.off-card .phone{font-size:14px;font-weight:700;color:var(--blue-dark);font-family:var(--mono)}
+
+@media(max-width:900px){
+  .contact-layout{grid-template-columns:1fr}
+  .off-grid{grid-template-columns:1fr 1fr}
+  .contact-channels{grid-template-columns:1fr}
+}
+@media(max-width:600px){.off-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap solid" id="navbar">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link">Services</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="clients.html" class="nav-link">Clients</a><a href="contact.html" class="nav-link active">Contact</a>
+    </div>
+    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
+    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html" class="active">Contact</a></div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="sec-chip dark rv">Contact Us</div>
+    <h1 class="rv rv-d1">Let's Discuss Working Together</h1>
+    <p class="rv rv-d2">Have a project in mind? Reach out and let's turn your vision into reality.</p>
+    <div class="breadcrumb rv rv-d3"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+  </div>
+</section>
+
+<!-- CONTACT FORM + INFO -->
+<section class="sec" style="background:#fff">
+  <div class="container">
+    <div class="contact-layout">
+
+      <div class="contact-left rv">
+        <img src="Images/Contact Page Illustration.png" alt="Contact us" class="contact-img"/>
+
+        <div class="contact-card">
+          <div class="icon-badge sm">&#128205;</div>
+          <div><div class="cc-label">Headquarters</div><div class="cc-val">Hyderabad, India</div><div class="cc-sub">12th Floor, East Wing, VSD Tech Park, Nanakramguda, Telangana 500032</div></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon-badge sm">&#128222;</div>
+          <div><div class="cc-label">Phone</div><div class="cc-val">+91 970 193 0011</div><div class="cc-sub">Also: +91 970 193 0022</div></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon-badge sm">&#9993;</div>
+          <div><div class="cc-label">Email</div><div class="cc-val">sales@versatileitsol.com</div><div class="cc-sub">HR: hr@versatileitsol.com<br/>Careers: careers@versatileitsol.com</div></div>
+        </div>
+
+        <div class="contact-channels">
+          <div class="ch-card"><div class="ch-icon">&#128172;</div><div class="ch-label">WhatsApp</div><div class="ch-val">+91 9701930011</div></div>
+          <div class="ch-card"><div class="ch-icon">&#128187;</div><div class="ch-label">Skype</div><div class="ch-val">srinivas.mogilipala</div></div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap rv rv-d2">
+        <h2>Start Your Project</h2>
+        <p>Fill out the form and we'll respond within 24 hours.</p>
+        <form onsubmit="event.preventDefault();this.innerHTML='<div style=\'text-align:center;padding:48px 0\'><div style=\'font-size:48px;margin-bottom:16px\'>&#10003;</div><h3 style=\'font-size:24px;font-weight:700;color:var(--heading);margin-bottom:8px\'>Thank You!</h3><p style=\'color:var(--text-grey)\'>We\'ll be in touch within 24 hours.</p></div>'">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="John" required/></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Doe"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="john@company.com" required/></div>
+            <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input" placeholder="+1 234 567 890"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full"><label class="form-label">Service Interested In</label>
+              <select class="form-input form-select">
+                <option value="">Select a service...</option>
+                <option>Web Design & Development</option>
+                <option>Mobile App Development</option>
+                <option>UX & UI Design</option>
+                <option>ML & AI Services</option>
+                <option>Digital Marketing & SEO</option>
+                <option>SAP Consulting</option>
+                <option>Staff Augmentation</option>
+                <option>IT Consulting</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full"><label class="form-label">Project Details</label><textarea class="form-textarea" placeholder="Tell us about your project, timeline, and budget..."></textarea></div>
+          </div>
+          <button type="submit" class="btn-purple" style="width:100%;margin-top:8px">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL OFFICES -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Global Offices</div>
+      <h2 class="sec-title rv rv-d1">4 Countries. 1 Team.</h2>
+      <p class="sec-desc rv rv-d2">Reach out to the office nearest to you.</p>
+    </div>
+    <div class="off-grid">
+      <div class="off-card rv">
+        <div class="off-flag">&#127470;&#127475;</div>
+        <h4>India (HQ)</h4>
+        <p>12th Floor, East Wing, VSD Tech Park, Nanakramguda, Hyderabad, Telangana 500032</p>
+        <div class="phone">+91 970 193 0011</div>
+      </div>
+      <div class="off-card rv rv-d1">
+        <div class="off-flag">&#127482;&#127480;</div>
+        <h4>USA</h4>
+        <p>77 Milltown Rd, Ste C7, East Brunswick, NJ 08816-2302</p>
+        <div class="phone">+1 934 221 7261</div>
+      </div>
+      <div class="off-card rv rv-d2">
+        <div class="off-flag">&#127462;&#127466;</div>
+        <h4>Dubai, UAE</h4>
+        <p>Dynamic Business Center, M Floor, Office #63, Abdullah Kamber Bldg, Hor Al Anz</p>
+        <div class="phone">+971 55 316 6156</div>
+      </div>
+      <div class="off-card rv rv-d3">
+        <div class="off-flag">&#127475;&#127473;</div>
+        <h4>Netherlands</h4>
+        <p>European operations hub serving clients across Western Europe.</p>
+        <div class="phone">+31 6200 48 269</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-mark">V</div>Versatile IT Solutions</div><p class="footer-desc">Your innovation partners for the digital age.</p><div class="footer-pills"><span>India</span><span>USA</span><span>Dubai</span><span>Netherlands</span></div></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="services.html">ML &amp; AI</a><a href="services.html">Web Dev</a><a href="services.html">Mobile Apps</a><a href="services.html">UX/UI</a><a href="services.html">Digital Marketing</a><a href="services.html">SAP</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:+919701930011">&#127470;&#127475; +91 970 193 0011</a><a href="tel:+19342217261">&#127482;&#127480; +1 934 221 7261</a><a href="mailto:sales@versatileitsol.com" style="margin-top:8px;color:rgba(255,255,255,.8)">sales@versatileitsol.com</a></div>
+    </div>
+    <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

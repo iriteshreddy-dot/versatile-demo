@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Clients — Versatile IT Solutions</title>
+<meta name="description" content="180+ global clients across India, USA, UAE and beyond. Trusted by Godrej, Govt of Telangana, GHMC, NTV and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+/* region tabs */
+.region-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.region-tab{padding:10px 24px;border-radius:var(--r-pill);font-size:14px;font-weight:700;color:var(--text-grey);background:#fff;border:1.5px solid var(--light-grey);cursor:pointer;transition:all .2s}
+.region-tab:hover{border-color:var(--blue);color:var(--blue)}
+.region-tab.active{background:linear-gradient(112.8deg,#6A36FF -15.76%,#AC5FE6 102.86%);color:#fff;border-color:transparent}
+
+/* client grid */
+.client-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.client-logo-item{background:#fff;border-radius:var(--r);padding:18px 14px;text-align:center;border:1px solid var(--light-grey);box-shadow:var(--shadow-sm);font-size:14px;font-weight:700;color:var(--heading);transition:transform .2s,box-shadow .2s,border-color .2s;opacity:0;transform:translateY(12px)}
+.client-logo-item.vis{opacity:1;transform:none}
+.client-logo-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--blue)}
+.client-logo-item .cl-industry{font-size:11px;font-weight:500;color:var(--text-grey);margin-top:4px}
+
+/* region sections */
+.region-section{display:none}
+.region-section.active{display:block}
+
+/* testimonial grid for clients page */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.test-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap solid" id="navbar">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link">Services</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="clients.html" class="nav-link active">Clients</a><a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
+    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html" class="active">Clients</a><a href="contact.html">Contact</a></div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="sec-chip dark rv">Our Clients</div>
+    <h1 class="rv rv-d1">180+ Clients Worldwide</h1>
+    <p class="rv rv-d2">Trusted by startups, enterprises, and governments across India, USA, UAE, and beyond.</p>
+    <div class="breadcrumb rv rv-d3"><a href="index.html">Home</a><span>/</span><span>Clients</span></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="container">
+  <div class="stats-bar rv">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><div class="stat-num"><span data-count="180">0</span><span class="suffix">+</span></div><div class="stat-label">Global Clients</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-count="300">0</span><span class="suffix">+</span></div><div class="stat-label">Projects Delivered</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-count="13">0</span><span class="suffix">+</span></div><div class="stat-label">Industries Served</div></div>
+      <div class="stat-item"><div class="stat-num"><span data-count="4">0</span><span class="suffix"></span></div><div class="stat-label">Regions</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENTS BY REGION -->
+<section class="sec" style="background:#fff;padding-top:96px">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">By Region</div>
+      <h2 class="sec-title rv rv-d1">Clients Across the Globe</h2>
+    </div>
+
+    <div class="region-tabs rv" id="regionTabs">
+      <button class="region-tab active" data-region="india">&#127470;&#127475; India</button>
+      <button class="region-tab" data-region="usa">&#127482;&#127480; USA</button>
+      <button class="region-tab" data-region="uae">&#127462;&#127466; UAE</button>
+      <button class="region-tab" data-region="global">&#127758; Global</button>
+    </div>
+
+    <!-- INDIA -->
+    <div class="region-section active" id="region-india">
+      <div class="client-grid">
+        <div class="client-logo-item">Govt. of Telangana<div class="cl-industry">Government</div></div>
+        <div class="client-logo-item">GHMC<div class="cl-industry">Government</div></div>
+        <div class="client-logo-item">NTV<div class="cl-industry">Media</div></div>
+        <div class="client-logo-item">T-News<div class="cl-industry">Media</div></div>
+        <div class="client-logo-item">Imimobile<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Gati<div class="cl-industry">Logistics</div></div>
+        <div class="client-logo-item">PurpleTalk<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Aam Aadmi Party<div class="cl-industry">Political</div></div>
+        <div class="client-logo-item">Palle Pragathi<div class="cl-industry">Government</div></div>
+        <div class="client-logo-item">Hybiz TV<div class="cl-industry">Media</div></div>
+        <div class="client-logo-item">Telangana Times<div class="cl-industry">Media</div></div>
+        <div class="client-logo-item">Tradex<div class="cl-industry">FinTech</div></div>
+        <div class="client-logo-item">Ur Career<div class="cl-industry">HR Tech</div></div>
+        <div class="client-logo-item">Neo-Mindify<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">Spectransys<div class="cl-industry">Enterprise</div></div>
+        <div class="client-logo-item">Vardhini Group<div class="cl-industry">Real Estate</div></div>
+        <div class="client-logo-item">Fans Adda<div class="cl-industry">Entertainment</div></div>
+        <div class="client-logo-item">Yegna Developers<div class="cl-industry">Real Estate</div></div>
+        <div class="client-logo-item">Medxind<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">Aadhatrip<div class="cl-industry">Travel</div></div>
+        <div class="client-logo-item">Sacred Beast<div class="cl-industry">Gaming</div></div>
+        <div class="client-logo-item">Stizup<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Go Hostel<div class="cl-industry">Hospitality</div></div>
+        <div class="client-logo-item">Bookursalon<div class="cl-industry">Lifestyle</div></div>
+        <div class="client-logo-item">Ankapur Chicken<div class="cl-industry">Food</div></div>
+        <div class="client-logo-item">Deccan Serai<div class="cl-industry">Hospitality</div></div>
+        <div class="client-logo-item">Return My Ticket<div class="cl-industry">Travel</div></div>
+        <div class="client-logo-item">Mana Radio<div class="cl-industry">Media</div></div>
+        <div class="client-logo-item">India CME<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">Airfi<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">ICSI<div class="cl-industry">Education</div></div>
+        <div class="client-logo-item">NSR Nirvana<div class="cl-industry">Real Estate</div></div>
+        <div class="client-logo-item">TFMC<div class="cl-industry">Government</div></div>
+        <div class="client-logo-item">Mars Telecom<div class="cl-industry">Telecom</div></div>
+        <div class="client-logo-item">Greenconnexion<div class="cl-industry">Energy</div></div>
+        <div class="client-logo-item">Vihaan Properties<div class="cl-industry">Real Estate</div></div>
+      </div>
+    </div>
+
+    <!-- USA -->
+    <div class="region-section" id="region-usa">
+      <div class="client-grid">
+        <div class="client-logo-item">Godrej<div class="cl-industry">Enterprise</div></div>
+        <div class="client-logo-item">NAAS Technologies<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">SysUSA<div class="cl-industry">IT Services</div></div>
+        <div class="client-logo-item">TASC<div class="cl-industry">Staffing</div></div>
+        <div class="client-logo-item">Softworld<div class="cl-industry">Software</div></div>
+        <div class="client-logo-item">Tabner Global<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Finch Healthcare<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">Orbit Healthcare<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">Executive Software<div class="cl-industry">Software</div></div>
+        <div class="client-logo-item">Xperteng<div class="cl-industry">Engineering</div></div>
+        <div class="client-logo-item">Clorder<div class="cl-industry">Food Tech</div></div>
+        <div class="client-logo-item">ShoprLive<div class="cl-industry">E-Commerce</div></div>
+        <div class="client-logo-item">Thought Circuits<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">BluKitchens<div class="cl-industry">Restaurant</div></div>
+        <div class="client-logo-item">Tikka Masala Grill<div class="cl-industry">Restaurant</div></div>
+        <div class="client-logo-item">Banana Leaf<div class="cl-industry">Restaurant</div></div>
+        <div class="client-logo-item">Drive Now<div class="cl-industry">Automotive</div></div>
+        <div class="client-logo-item">Shipping Saint<div class="cl-industry">Logistics</div></div>
+        <div class="client-logo-item">Track It Now<div class="cl-industry">Logistics</div></div>
+        <div class="client-logo-item">Byteinfotek<div class="cl-industry">IT Services</div></div>
+        <div class="client-logo-item">Sunray Informatics<div class="cl-industry">IT Services</div></div>
+        <div class="client-logo-item">Rozo Software<div class="cl-industry">Software</div></div>
+        <div class="client-logo-item">Mypayco<div class="cl-industry">FinTech</div></div>
+        <div class="client-logo-item">Sea Panther<div class="cl-industry">Enterprise</div></div>
+      </div>
+    </div>
+
+    <!-- UAE -->
+    <div class="region-section" id="region-uae">
+      <div class="client-grid">
+        <div class="client-logo-item">SolitAir<div class="cl-industry">Holdings</div></div>
+        <div class="client-logo-item">Al-Masaood<div class="cl-industry">Enterprise</div></div>
+        <div class="client-logo-item">Netaq<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Sparkgain<div class="cl-industry">FinTech</div></div>
+        <div class="client-logo-item">Gifts Points<div class="cl-industry">E-Commerce</div></div>
+        <div class="client-logo-item">AppNetco<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Gift Code4u<div class="cl-industry">E-Commerce</div></div>
+        <div class="client-logo-item">Marhaba<div class="cl-industry">Hospitality</div></div>
+        <div class="client-logo-item">Tradex<div class="cl-industry">FinTech</div></div>
+        <div class="client-logo-item">Infusion<div class="cl-industry">Technology</div></div>
+        <div class="client-logo-item">Workallo<div class="cl-industry">HR Tech</div></div>
+      </div>
+    </div>
+
+    <!-- GLOBAL -->
+    <div class="region-section" id="region-global">
+      <div class="client-grid">
+        <div class="client-logo-item">WS Audiology<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">GigX Global<div class="cl-industry">HR Tech</div></div>
+        <div class="client-logo-item">Value Global<div class="cl-industry">Enterprise</div></div>
+        <div class="client-logo-item">Wrkman<div class="cl-industry">Workforce</div></div>
+        <div class="client-logo-item">Red Rhino<div class="cl-industry">Mobile App</div></div>
+        <div class="client-logo-item">HealthX<div class="cl-industry">Healthcare</div></div>
+        <div class="client-logo-item">Snapeats<div class="cl-industry">Food Tech</div></div>
+        <div class="client-logo-item">Dhukan<div class="cl-industry">E-Commerce</div></div>
+        <div class="client-logo-item">See Wheelers<div class="cl-industry">Automotive</div></div>
+        <div class="client-logo-item">Good Times<div class="cl-industry">Entertainment</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Client Voices</div>
+      <h2 class="sec-title rv rv-d1">Testimonials That Inspire</h2>
+    </div>
+    <div class="test-grid">
+      <div class="testi-card rv" style="width:auto;flex-shrink:initial"><div class="testi-quote">Time and effort invested to complete prior to deadline while ensuring quality at every phase. You are a valued member of our team!</div><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">Vamshi Krishna Mohan</div><div class="testi-role">Director — Return My Ticket</div></div></div></div>
+      <div class="testi-card rv rv-d1" style="width:auto;flex-shrink:initial"><div class="testi-quote">Professional, attentive, highly skilled team. App achieved significant downloads and high user retention with active daily users.</div><div class="testi-author"><div class="testi-avatar">RR</div><div><div class="testi-name">Rohit Raj</div><div class="testi-role">Head of Operations — Sacred Beast</div></div></div></div>
+      <div class="testi-card rv rv-d2" style="width:auto;flex-shrink:initial"><div class="testi-quote">Quality code delivered at good price. High quality majority of work. Dedication to on-time delivery is their hallmark.</div><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">Vikram Kulkarni</div><div class="testi-role">CEO — HealthX Technologies</div></div></div></div>
+      <div class="testi-card rv" style="width:auto;flex-shrink:initial"><div class="testi-quote">Impressive response from team and management. iOS and Android versions live in app stores working without error. Positive user feedback.</div><div class="testi-author"><div class="testi-avatar">MT</div><div><div class="testi-name">Meghraj Singh Thakur</div><div class="testi-role">Marketing Manager — UCOD</div></div></div></div>
+      <div class="testi-card rv rv-d1" style="width:auto;flex-shrink:initial"><div class="testi-quote">Pleased with client service level. High-quality efforts. Impressive suggestions and additions. Knowledgeable, communicative, skilled team.</div><div class="testi-author"><div class="testi-avatar">YL</div><div><div class="testi-name">Yashwanth L</div><div class="testi-role">MD — SEE Wheelers Technologies</div></div></div></div>
+      <div class="testi-card rv rv-d2" style="width:auto;flex-shrink:initial"><div class="testi-quote">Happy with delivered results. No bugs or crashes during development. Good coordination making excellent collaborators. Great quality, reasonable price.</div><div class="testi-author"><div class="testi-avatar">KP</div><div><div class="testi-name">Krishna Prasad</div><div class="testi-role">Founder — GO HOSTEL</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);padding:72px 0;text-align:center">
+  <div class="container"><h2 style="font-size:40px;font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:14px" class="rv">Join 180+ Satisfied Clients</h2><p style="font-size:17px;color:rgba(255,255,255,.6);margin-bottom:32px" class="rv rv-d1">Let's discuss your project and build something extraordinary.</p><a href="contact.html" class="btn-purple rv rv-d2">Get a Free Quote</a></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-mark">V</div>Versatile IT Solutions</div><p class="footer-desc">Your innovation partners for the digital age.</p><div class="footer-pills"><span>India</span><span>USA</span><span>Dubai</span><span>Netherlands</span></div></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="services.html">ML &amp; AI</a><a href="services.html">Web Dev</a><a href="services.html">Mobile Apps</a><a href="services.html">UX/UI</a><a href="services.html">Digital Marketing</a><a href="services.html">SAP</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:+919701930011">&#127470;&#127475; +91 970 193 0011</a><a href="tel:+19342217261">&#127482;&#127480; +1 934 221 7261</a><a href="mailto:sales@versatileitsol.com" style="margin-top:8px;color:rgba(255,255,255,.8)">sales@versatileitsol.com</a></div>
+    </div>
+    <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+/* Region tabs */
+const tabs = document.querySelectorAll('.region-tab');
+const regions = document.querySelectorAll('.region-section');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    regions.forEach(r => r.classList.remove('active'));
+    document.getElementById('region-' + tab.dataset.region).classList.add('active');
+    // Re-trigger logo animations
+    document.querySelectorAll('.region-section.active .client-logo-item').forEach((el, i) => {
+      el.classList.remove('vis');
+      el.style.transitionDelay = (i * 0.03) + 's';
+      setTimeout(() => el.classList.add('vis'), 50);
+    });
+  });
+});
+</script>
+</body>
+</html>

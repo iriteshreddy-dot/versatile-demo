@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Portfolio — Versatile IT Solutions</title>
+<meta name="description" content="Explore 300+ projects delivered across mobile apps, web platforms, and enterprise solutions."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* filter tabs */
+.filter-bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+.filter-btn{padding:10px 22px;border-radius:var(--r-pill);font-size:14px;font-weight:700;color:var(--text-grey);background:#fff;border:1.5px solid var(--light-grey);cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+.filter-btn.active{background:linear-gradient(112.8deg,#6A36FF -15.76%,#AC5FE6 102.86%);color:#fff;border-color:transparent}
+
+/* portfolio grid */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.port-card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid rgba(0,0,0,.03);transition:transform .25s,box-shadow .25s}
+.port-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.port-thumb{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.port-thumb .port-gradient{position:absolute;inset:0}
+.port-thumb-icon{font-size:56px;position:relative;z-index:1;filter:drop-shadow(0 4px 16px rgba(0,0,0,.15))}
+.port-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(3,19,61,.7));pointer-events:none}
+.port-cat-badge{position:absolute;top:14px;left:14px;padding:4px 12px;border-radius:var(--r-pill);font-size:11px;font-weight:700;z-index:1}
+.port-cat-badge.mobile{background:rgba(0,151,254,.9);color:#fff}
+.port-cat-badge.web{background:rgba(106,54,255,.9);color:#fff}
+.port-cat-badge.enterprise{background:rgba(5,205,153,.9);color:#fff}
+.port-cat-badge.food{background:rgba(255,174,0,.9);color:#fff}
+.port-cat-badge.health{background:rgba(239,68,68,.85);color:#fff}
+.port-cat-badge.travel{background:rgba(0,111,186,.9);color:#fff}
+.port-cat-badge.gaming{background:rgba(172,95,230,.9);color:#fff}
+.port-body{padding:22px}
+.port-body h3{font-size:18px;font-weight:700;color:var(--heading);letter-spacing:-.02em;margin-bottom:6px}
+.port-body p{font-size:14px;color:var(--text-grey);line-height:1.55;margin-bottom:14px}
+.port-platforms{display:flex;gap:6px;flex-wrap:wrap}
+.port-plat{padding:3px 10px;background:var(--surface);border-radius:4px;font-size:11px;font-weight:700;color:var(--text-grey)}
+
+@media(max-width:900px){.port-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.port-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap solid" id="navbar">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link">Services</a><a href="portfolio.html" class="nav-link active">Portfolio</a><a href="clients.html" class="nav-link">Clients</a><a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
+    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" class="active">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="sec-chip dark rv">Our Work</div>
+    <h1 class="rv rv-d1">300+ Projects Delivered</h1>
+    <p class="rv rv-d2">A selection of mobile apps, web platforms, and enterprise solutions we've built for clients worldwide.</p>
+    <div class="breadcrumb rv rv-d3"><a href="index.html">Home</a><span>/</span><span>Portfolio</span></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="sec" style="background:#fff">
+  <div class="container">
+
+    <!-- Filter -->
+    <div class="filter-bar rv">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+      <button class="filter-btn" data-filter="web">Web Platforms</button>
+      <button class="filter-btn" data-filter="food">Food & Commerce</button>
+      <button class="filter-btn" data-filter="health">Health & Wellness</button>
+      <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="port-grid">
+
+      <div class="port-card rv" data-category="gaming">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#1C2792,#6A36FF)"></div><div class="port-thumb-icon">&#127918;</div><span class="port-cat-badge gaming">Gaming</span></div>
+        <div class="port-body"><h3>Sacred Beast</h3><p>Mobile gaming and entertainment application with significant downloads and high user retention across platforms.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d1" data-category="enterprise">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#14358A,#0097FE)"></div><div class="port-thumb-icon">&#9889;</div><span class="port-cat-badge enterprise">Enterprise</span></div>
+        <div class="port-body"><h3>NAAS Technologies</h3><p>Web-based enterprise technology platform with comprehensive video content and digital presence strategy.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Video</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d2" data-category="enterprise">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#006FBA,#1B45B4)"></div><div class="port-thumb-icon">&#127970;</div><span class="port-cat-badge enterprise">Enterprise</span></div>
+        <div class="port-body"><h3>SolitAir Holdings</h3><p>Enterprise holding company platform with showcase website and professional video production deliverables.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Video</span></div></div>
+      </div>
+
+      <div class="port-card rv" data-category="web">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#0D1B3E,#006FBA)"></div><div class="port-thumb-icon">&#128300;</div><span class="port-cat-badge web">Web</span></div>
+        <div class="port-body"><h3>Spectransys</h3><p>B2B technical services platform with comprehensive website and professional video presentation materials.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Video</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d1" data-category="food">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#FFAE00,#EF4444)"></div><div class="port-thumb-icon">&#127828;</div><span class="port-cat-badge food">Food</span></div>
+        <div class="port-body"><h3>Snapeats</h3><p>Full-featured food delivery application serving the Australian market with Android, iOS, and web ordering system.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d2" data-category="health">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#05CD99,#006FBA)"></div><div class="port-thumb-icon">&#129504;</div><span class="port-cat-badge health">Health</span></div>
+        <div class="port-body"><h3>Neo Mindify</h3><p>Mental health and wellness application helping users manage their mental well-being through guided sessions.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv" data-category="mobile">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#6A36FF,#0097FE)"></div><div class="port-thumb-icon">&#128188;</div><span class="port-cat-badge mobile">Mobile</span></div>
+        <div class="port-body"><h3>Ur Career</h3><p>Career development platform connecting job seekers with opportunities across multiple platforms and channels.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d1" data-category="travel">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#0097FE,#05CD99)"></div><div class="port-thumb-icon">&#9992;&#65039;</div><span class="port-cat-badge travel">Travel</span></div>
+        <div class="port-body"><h3>Aadhatrip</h3><p>End-to-end travel booking application with flights, accommodations, and complete trip planning features.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d2" data-category="mobile">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#1B45B4,#AC5FE6)"></div><div class="port-thumb-icon">&#128736;</div><span class="port-cat-badge mobile">Mobile</span></div>
+        <div class="port-body"><h3>Wrkman</h3><p>Workforce management application streamlining operations and team coordination across field and office staff.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv" data-category="food">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#EF4444,#FFAE00)"></div><div class="port-thumb-icon">&#128722;</div><span class="port-cat-badge food">E-Commerce</span></div>
+        <div class="port-body"><h3>ShoprLive</h3><p>Live shopping and e-commerce retail platform enabling real-time product showcasing and instant purchasing.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">Web</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d1" data-category="health">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#006FBA,#05CD99)"></div><div class="port-thumb-icon">&#127973;</div><span class="port-cat-badge health">Health</span></div>
+        <div class="port-body"><h3>HealthX Technologies</h3><p>Healthcare technology platform delivering quality code for clinical workflows and patient management systems.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Mobile</span></div></div>
+      </div>
+
+      <div class="port-card rv rv-d2" data-category="web">
+        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#14358A,#1C2792)"></div><div class="port-thumb-icon">&#128187;</div><span class="port-cat-badge web">Web</span></div>
+        <div class="port-body"><h3>Govt. of Telangana</h3><p>High-functioning government portals accessible in multiple languages, serving large populations across the state.</p><div class="port-platforms"><span class="port-plat">Web Portal</span><span class="port-plat">Multi-language</span></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);padding:72px 0;text-align:center">
+  <div class="container"><h2 style="font-size:40px;font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:14px" class="rv">Have a Project in Mind?</h2><p style="font-size:17px;color:rgba(255,255,255,.6);margin-bottom:32px" class="rv rv-d1">Let's build something extraordinary together.</p><a href="contact.html" class="btn-purple rv rv-d2">Start Your Project</a></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-mark">V</div>Versatile IT Solutions</div><p class="footer-desc">Your innovation partners for the digital age.</p><div class="footer-pills"><span>India</span><span>USA</span><span>Dubai</span><span>Netherlands</span></div></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="services.html">ML &amp; AI</a><a href="services.html">Web Dev</a><a href="services.html">Mobile Apps</a><a href="services.html">UX/UI</a><a href="services.html">Digital Marketing</a><a href="services.html">SAP</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:+919701930011">&#127470;&#127475; +91 970 193 0011</a><a href="tel:+19342217261">&#127482;&#127480; +1 934 221 7261</a><a href="mailto:sales@versatileitsol.com" style="margin-top:8px;color:rgba(255,255,255,.8)">sales@versatileitsol.com</a></div>
+    </div>
+    <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

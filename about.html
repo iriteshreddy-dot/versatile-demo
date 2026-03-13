@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Us — Versatile IT Solutions</title>
+<meta name="description" content="Learn about Versatile IT Solutions — 12+ years of digital innovation across 4 countries with 180+ global clients."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-img{border-radius:var(--r-lg);overflow:hidden}
+.about-img img{width:100%;border-radius:var(--r-lg)}
+.about-text h2{font-size:40px;font-weight:700;color:var(--blue-darkest);letter-spacing:-.03em;line-height:1.08;margin-bottom:18px}
+.about-text p{font-size:16px;color:var(--text-grey);line-height:1.65;margin-bottom:14px}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.about-tags span{padding:6px 16px;background:var(--blue-light);border-radius:var(--r-pill);font-size:13px;font-weight:700;color:var(--blue-dark)}
+
+/* MVV */
+.mvv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.mvv-card{background:#fff;border-radius:var(--r);padding:32px;box-shadow:var(--shadow-sm);border-top:4px solid var(--blue)}
+.mvv-card:nth-child(2){border-top-color:var(--purple-start)}
+.mvv-card:nth-child(3){border-top-color:var(--success)}
+.mvv-card h3{font-size:20px;font-weight:700;color:var(--heading);margin:12px 0 10px}
+.mvv-card p{font-size:14px;color:var(--text-grey);line-height:1.65}
+
+/* Timeline */
+.timeline{position:relative;padding:40px 0}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--light-grey);transform:translateX(-50%)}
+.tl-item{display:flex;align-items:flex-start;margin-bottom:48px;position:relative}
+.tl-item:last-child{margin-bottom:0}
+.tl-item:nth-child(odd){flex-direction:row-reverse;text-align:right}
+.tl-content{width:calc(50% - 40px);padding:24px 28px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm);border:1px solid var(--light-grey)}
+.tl-dot{position:absolute;left:50%;top:28px;width:16px;height:16px;background:var(--blue);border-radius:50%;border:3px solid #F4F6FF;transform:translateX(-50%);z-index:1}
+.tl-year{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:6px}
+.tl-content h4{font-size:17px;font-weight:700;color:var(--heading);margin-bottom:6px}
+.tl-content p{font-size:14px;color:var(--text-grey);line-height:1.6}
+
+/* Values */
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.val-card{background:#fff;border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);text-align:center}
+.val-icon{font-size:36px;margin-bottom:12px}
+.val-card h4{font-size:16px;font-weight:700;color:var(--heading);margin-bottom:8px}
+.val-card p{font-size:14px;color:var(--text-grey);line-height:1.6}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.team-card{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);text-align:center;transition:transform .2s,box-shadow .2s}
+.team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.team-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-darkest));display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;margin:0 auto 14px}
+.team-card.has-img .team-avatar{padding:0;overflow:hidden}
+.team-card.has-img .team-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.team-card h4{font-size:15px;font-weight:700;color:var(--heading);margin-bottom:2px}
+.team-card p{font-size:12px;color:var(--text-grey)}
+.team-card .loc{font-size:11px;color:var(--border);margin-top:4px}
+
+/* offices */
+.off-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.off-card{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);border-left:3px solid var(--blue)}
+.off-card:nth-child(2){border-left-color:var(--purple-start)}
+.off-card:nth-child(3){border-left-color:var(--success)}
+.off-card:nth-child(4){border-left-color:var(--warning)}
+.off-flag{font-size:28px;margin-bottom:8px}
+.off-card h4{font-size:15px;font-weight:700;color:var(--heading);margin-bottom:4px}
+.off-card p{font-size:13px;color:var(--text-grey);line-height:1.5}
+.off-card .phone{font-size:13px;font-family:var(--mono);color:var(--blue-dark);margin-top:8px}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .mvv-grid,.val-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .off-grid{grid-template-columns:1fr 1fr}
+  .timeline::before{left:20px}
+  .tl-item,.tl-item:nth-child(odd){flex-direction:row;text-align:left}
+  .tl-content{width:calc(100% - 52px);margin-left:auto}
+  .tl-dot{left:20px}
+}
+@media(max-width:600px){
+  .team-grid,.off-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav-wrap solid" id="navbar">
+  <nav class="nav">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link active">About</a><a href="services.html" class="nav-link">Services</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="clients.html" class="nav-link">Clients</a><a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
+    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="sec-chip dark rv">About Us</div>
+    <h1 class="rv rv-d1">Your One-Stop Partner for<br/>Design, Technology &amp; Marketing</h1>
+    <p class="rv rv-d2">12+ years of building category-defining products through the latest technology, built by the best craftsmen you can rely on.</p>
+    <div class="breadcrumb rv rv-d3"><a href="index.html">Home</a><span>/</span><span>About Us</span></div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="sec" style="background:#fff">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img rv"><img src="Images/ABOUT  COMPANY SECTION.png" alt="Global presence"/></div>
+      <div class="about-text">
+        <div class="sec-chip rv">Who We Are</div>
+        <h2 class="rv rv-d1">Innovation Partners for the Digital Age</h2>
+        <p class="rv rv-d2">We are <strong>Versatile IT Solutions</strong> (Versatile Mobitech Pvt. Ltd.) — an end-to-end digital transformation partner headquartered in Hyderabad, India with offices across 4 continents.</p>
+        <p class="rv rv-d2">For the last 12+ years, we've sky-rocketed the growth of our partners and customers through innovation in strategy and technology. We believe in creating compounding value through precision, helping clients cause a phase-shift across their industry.</p>
+        <p class="rv rv-d3">With 180+ clients globally and 300+ projects delivered, our endless curiosity spans UI/UX, Web & Mobile Development, Digital Marketing, ML & AI, IoT, Enterprise Solutions, and IT Consulting.</p>
+        <div class="about-tags rv rv-d3">
+          <span>UI/UX Design</span><span>Web Development</span><span>Mobile Apps</span><span>ML &amp; AI</span><span>Digital Marketing</span><span>SAP Consulting</span><span>IoT</span><span>Staff Augmentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER SPOTLIGHT -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;max-width:900px;margin:0 auto">
+      <div class="rv" style="position:relative">
+        <div style="width:240px;height:280px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative;z-index:1">
+          <img src="Images/Founder-CEO.png" alt="Srinivas Mogilipala — Founder & CEO" style="width:100%;height:100%;object-fit:cover"/>
+        </div>
+        <div style="position:absolute;bottom:-12px;right:-12px;width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(0,151,254,.15),rgba(106,54,255,.15));z-index:0"></div>
+      </div>
+      <div>
+        <div class="sec-chip rv">Meet Our Founder</div>
+        <h2 class="rv rv-d1" style="font-size:36px;font-weight:700;color:var(--blue-darkest);letter-spacing:-.03em;line-height:1.08;margin-bottom:8px">Srinivas Mogilipala</h2>
+        <div class="rv rv-d2" style="font-size:16px;font-weight:700;color:var(--blue);margin-bottom:16px">Founder &amp; CEO — Versatile Mobitech Pvt. Ltd.</div>
+        <p class="rv rv-d2" style="font-size:16px;color:var(--text-grey);line-height:1.65;margin-bottom:14px">Srinivas founded Versatile IT Solutions in 2012 with a team of 5 engineers and a vision to become a one-stop digital transformation partner for businesses worldwide. Under his leadership, the company has grown from a small Hyderabad startup to a global operation spanning 4 countries with 180+ clients.</p>
+        <p class="rv rv-d3" style="font-size:16px;color:var(--text-grey);line-height:1.65;margin-bottom:20px">His philosophy of creating compounding value through precision and innovation has driven the delivery of 300+ successful projects across FinTech, Healthcare, E-commerce, Government, and 13+ other industry verticals. Today, Srinivas continues to lead the company's expansion into AI/ML services and global markets.</p>
+        <div class="rv rv-d3" style="display:flex;gap:24px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column"><span style="font-size:24px;font-weight:700;color:var(--heading);letter-spacing:-.03em">12+</span><span style="font-size:12px;color:var(--text-grey)">Years Leading</span></div>
+          <div style="display:flex;flex-direction:column"><span style="font-size:24px;font-weight:700;color:var(--heading);letter-spacing:-.03em">180+</span><span style="font-size:12px;color:var(--text-grey)">Clients Served</span></div>
+          <div style="display:flex;flex-direction:column"><span style="font-size:24px;font-weight:700;color:var(--heading);letter-spacing:-.03em">4</span><span style="font-size:12px;color:var(--text-grey)">Country Offices</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION VISION VALUES -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Our Foundation</div>
+      <h2 class="sec-title rv rv-d1">Mission, Vision &amp; Values</h2>
+    </div>
+    <div class="mvv-grid">
+      <div class="mvv-card rv">
+        <div style="font-size:32px">&#127919;</div>
+        <h3>Mission</h3>
+        <p>Building category-defining products through the latest technology, built by the best craftsmen you can rely on. We specialize in turning complex challenges into elegant digital solutions.</p>
+      </div>
+      <div class="mvv-card rv rv-d1">
+        <div style="font-size:32px">&#128302;</div>
+        <h3>Vision</h3>
+        <p>Empowering global progress through transformative technology, visionary design, and collaborative innovation — forging a future where every business achieves its fullest potential.</p>
+      </div>
+      <div class="mvv-card rv rv-d2">
+        <div style="font-size:32px">&#128161;</div>
+        <h3>Core Values</h3>
+        <p><strong>Honesty</strong> — delivering optimal outcomes consistently.<br/><strong>Empathy</strong> — understanding from the user perspective.<br/><strong>Reliability</strong> — long-term partnerships with consistent delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec" style="background:#fff">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Our Journey</div>
+      <h2 class="sec-title rv rv-d1">12+ Years of Growth</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item rv"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2012 — Founded</div><h4>The Beginning</h4><p>Started by 5+ engineers as a comprehensive service provider for businesses from startups to enterprises. Headquartered in Hyderabad, India.</p></div></div>
+      <div class="tl-item rv"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2014 — Traction</div><h4>40+ Stable Clients</h4><p>Accumulated 40+ stable clients across India. Established strong foothold in web and mobile development services.</p></div></div>
+      <div class="tl-item rv"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2016 — Scaling</div><h4>80 Engineers Strong</h4><p>Team grew to approximately 80 engineers. Expanded service offerings to include ML/AI and digital marketing capabilities.</p></div></div>
+      <div class="tl-item rv"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2017 — Expansion</div><h4>100% Growth</h4><p>Reached 50+ employees — over 100% growth. Recruited nationally across India's best technical talent pools.</p></div></div>
+      <div class="tl-item rv"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2020 — Global</div><h4>International Offices</h4><p>Opened offices in USA (New Jersey), Dubai (UAE), and Netherlands. Became a truly global digital solutions provider.</p></div></div>
+      <div class="tl-item rv"><div class="tl-dot"></div><div class="tl-content"><div class="tl-year">2025 — Today</div><h4>70+ Team, 180+ Clients</h4><p>Operating with 70+ staff, 180+ global clients, and 300+ projects delivered across 13+ industry verticals.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Leadership</div>
+      <h2 class="sec-title rv rv-d1">Board of Executives</h2>
+      <p class="sec-desc rv rv-d2">The experienced leaders driving Versatile IT Solutions forward.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card has-img rv"><div class="team-avatar"><img src="Images/Founder-CEO.png" alt="Srinivas Mogilipala"/></div><h4>Srinivas Mogilipala</h4><p>Founder &amp; CEO</p><div class="loc">Hyderabad, India</div></div>
+      <div class="team-card rv rv-d1"><div class="team-avatar">RM</div><h4>Rama Mogilipala</h4><p>Director &amp; COO</p><div class="loc">Hyderabad, India</div></div>
+      <div class="team-card rv rv-d2"><div class="team-avatar">RS</div><h4>Raj Sarangam</h4><p>Director, ORP Soft LLC</p><div class="loc">Houston, Texas</div></div>
+      <div class="team-card rv rv-d3"><div class="team-avatar">MW</div><h4>Mohammed Waseem</h4><p>MD — Versatile IT (Dubai)</p><div class="loc">Dubai, UAE</div></div>
+      <div class="team-card rv"><div class="team-avatar">VR</div><h4>Vikram Reddy Ch</h4><p>MD — Genisys Tech Systems</p><div class="loc">Texas, USA</div></div>
+      <div class="team-card rv rv-d1"><div class="team-avatar">VK</div><h4>Vikram Kulkarni</h4><p>CEO — HealthX Technologies</p><div class="loc">Stockholm, Sweden</div></div>
+      <div class="team-card rv rv-d2"><div class="team-avatar">LV</div><h4>Lakshmipathi Vundavalli</h4><p>Sr. Project Manager</p><div class="loc">US — Infosys</div></div>
+      <div class="team-card rv rv-d3"><div class="team-avatar">SK</div><h4>Srinivas Kota</h4><p>Director of Engineering</p><div class="loc">Greater Seattle</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICES -->
+<section class="sec" style="background:#fff">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Global Presence</div>
+      <h2 class="sec-title rv rv-d1">4 Countries. 1 Team.</h2>
+    </div>
+    <div class="off-grid">
+      <div class="off-card rv"><div class="off-flag">&#127470;&#127475;</div><h4>India (HQ)</h4><p>12th Floor, East Wing, VSD Tech Park, Nanakramguda, Hyderabad, Telangana 500032</p><div class="phone">+91 970 193 0011</div></div>
+      <div class="off-card rv rv-d1"><div class="off-flag">&#127482;&#127480;</div><h4>USA</h4><p>77 Milltown Rd, Ste C7, East Brunswick, NJ 08816-2302</p><div class="phone">+1 934 221 7261</div></div>
+      <div class="off-card rv rv-d2"><div class="off-flag">&#127462;&#127466;</div><h4>Dubai, UAE</h4><p>Dynamic Business Center, M Floor, Office #63, Abdullah Kamber Bldg, Hor Al Anz</p><div class="phone">+971 55 316 6156</div></div>
+      <div class="off-card rv rv-d3"><div class="off-flag">&#127475;&#127473;</div><h4>Netherlands</h4><p>European operations hub serving Western European clients.</p><div class="phone">+31 6200 48 269</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAIN EXPERTISE -->
+<section class="sec" style="background:var(--surface)">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-chip rv">Domain Expertise</div>
+      <h2 class="sec-title rv rv-d1">13+ Industries Served</h2>
+      <p class="sec-desc rv rv-d2">Deep experience across every major industry vertical.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px">
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128178;</div><h4 style="font-size:14px">FinTech</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#127973;</div><h4 style="font-size:14px">Healthcare</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128722;</div><h4 style="font-size:14px">E-commerce</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128666;</div><h4 style="font-size:14px">Logistics</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#127970;</div><h4 style="font-size:14px">Real Estate</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#127891;</div><h4 style="font-size:14px">Education</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#127963;</div><h4 style="font-size:14px">Government</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128692;</div><h4 style="font-size:14px">Travel</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#127860;</div><h4 style="font-size:14px">Restaurants</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128247;</div><h4 style="font-size:14px">Digital Media</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128188;</div><h4 style="font-size:14px">Enterprise</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#9889;</div><h4 style="font-size:14px">Utilities</h4></div>
+      <div class="val-card rv" style="padding:20px"><div class="val-icon">&#128663;</div><h4 style="font-size:14px">Automotive</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(83.79deg,var(--hero-start) 3.25%,var(--hero-end) 96.85%);padding:72px 0;text-align:center;position:relative;overflow:hidden">
+  <div class="container" style="position:relative;z-index:1">
+    <h2 style="font-size:40px;font-weight:700;color:#fff;letter-spacing:-.03em;margin-bottom:14px" class="rv">Ready to Work Together?</h2>
+    <p style="font-size:17px;color:rgba(255,255,255,.6);margin-bottom:32px" class="rv rv-d1">Let's discuss your project and build something extraordinary.</p>
+    <a href="contact.html" class="btn-purple rv rv-d2">Get a Free Quote</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo"><div class="footer-logo-mark">V</div>Versatile IT Solutions</div><p class="footer-desc">Your innovation partners for the digital age. 12+ years of business growth through strategy and technology.</p><div class="footer-pills"><span>India</span><span>USA</span><span>Dubai</span><span>Netherlands</span></div></div>
+      <div class="footer-col"><div class="footer-col-title">Company</div><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><div class="footer-col-title">Services</div><a href="services.html">ML &amp; AI</a><a href="services.html">Web Development</a><a href="services.html">Mobile Apps</a><a href="services.html">UX/UI Design</a><a href="services.html">Digital Marketing</a><a href="services.html">SAP Consulting</a></div>
+      <div class="footer-col"><div class="footer-col-title">Contact</div><a href="tel:+919701930011">&#127470;&#127475; +91 970 193 0011</a><a href="tel:+19342217261">&#127482;&#127480; +1 934 221 7261</a><a href="tel:+971553166156">&#127462;&#127466; +971 55 316 6156</a><a href="mailto:sales@versatileitsol.com" style="margin-top:8px;color:rgba(255,255,255,.8)">sales@versatileitsol.com</a></div>
+    </div>
+    <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
