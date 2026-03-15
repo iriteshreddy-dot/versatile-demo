@@ -38,52 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(el => cIO.observe(el));
   }
 
-  /* ── Navbar scroll ── */
-  const navbar = document.getElementById('navbar');
-  if (navbar && !navbar.classList.contains('solid')) {
-    const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ── Active nav link ── */
-  const navLinks = document.querySelectorAll('.nav-link[data-section]');
-  const sections = [];
-  navLinks.forEach(l => {
-    const sec = document.getElementById(l.dataset.section);
-    if (sec) sections.push({ el: sec, link: l });
-  });
-  if (sections.length) {
-    const nIO = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          navLinks.forEach(l => l.classList.remove('active'));
-          const match = sections.find(s => s.el === e.target);
-          if (match) match.link.classList.add('active');
-        }
-      });
-    }, { threshold: 0.25 });
-    sections.forEach(s => nIO.observe(s.el));
-  }
-
-  /* ── Mobile menu ── */
-  const menuBtn = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      const spans = menuBtn.querySelectorAll('span');
-      spans[0].style.transform = open ? 'rotate(45deg) translate(5px,5px)' : 'none';
-      spans[1].style.opacity = open ? '0' : '1';
-      spans[2].style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : 'none';
+  /* ── Card Nav ── */
+  const cardNav = document.getElementById('cardNav');
+  const cardNavToggle = document.getElementById('cardNavToggle');
+  const navBackdrop = document.getElementById('navBackdrop');
+  if (cardNav && cardNavToggle) {
+    function closeNav() {
+      cardNav.classList.remove('open');
+      cardNavToggle.classList.remove('open');
+      if (navBackdrop) navBackdrop.classList.remove('active');
+    }
+    cardNavToggle.addEventListener('click', () => {
+      const opening = cardNav.classList.toggle('open');
+      cardNavToggle.classList.toggle('open');
+      if (navBackdrop) navBackdrop.classList.toggle('active', opening);
     });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        const spans = menuBtn.querySelectorAll('span');
-        spans.forEach(s => { s.style.transform = 'none'; s.style.opacity = '1'; });
-      });
+    cardNav.querySelectorAll('.nav-card-link').forEach(a => {
+      a.addEventListener('click', closeNav);
     });
+    if (navBackdrop) navBackdrop.addEventListener('click', closeNav);
   }
 
   /* ── Smooth scroll ── */
@@ -116,6 +89,73 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* ── Decrypt Text Effect (rotating phrases) ── */
+  document.querySelectorAll('.nav-decrypt-text').forEach(el => {
+    const phrases = [
+      'Empowering Global Digital Transformation',
+      'Driving Business Through Technology',
+      'Empowering Businesses with Technology',
+      'Innovating Global Business Growth',
+      'Technology-Driven Business Empowerment'
+    ];
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+';
+    const speed = 40;
+    const holdTime = 4000;
+    let phraseIdx = Math.floor(Math.random() * phrases.length);
+
+    function animatePhrase(text, onDone) {
+      var len = text.length;
+      var revealed = 0;
+      // scramble phase
+      function scramble() {
+        var out = '';
+        for (var i = 0; i < len; i++) {
+          if (text[i] === ' ') { out += ' '; continue; }
+          if (i < revealed) out += '<span>' + text[i] + '</span>';
+          else out += '<span class="encrypted">' + chars[Math.floor(Math.random() * chars.length)] + '</span>';
+        }
+        el.innerHTML = out;
+      }
+      scramble();
+      var iv = setInterval(function() {
+        while (revealed < len && text[revealed] === ' ') revealed++;
+        if (revealed >= len) { clearInterval(iv); el.textContent = text; if (onDone) onDone(); return; }
+        revealed++;
+        scramble();
+      }, speed);
+    }
+
+    function scrambleOut(text, onDone) {
+      var len = text.length;
+      var remaining = len;
+      var iv = setInterval(function() {
+        remaining -= 2;
+        if (remaining <= 0) { clearInterval(iv); el.innerHTML = ''; if (onDone) onDone(); return; }
+        var out = '';
+        for (var i = 0; i < len; i++) {
+          if (text[i] === ' ') { out += ' '; continue; }
+          if (i < remaining) out += '<span>' + text[i] + '</span>';
+          else out += '<span class="encrypted">' + chars[Math.floor(Math.random() * chars.length)] + '</span>';
+        }
+        el.innerHTML = out;
+      }, speed);
+    }
+
+    function cycle() {
+      var text = phrases[phraseIdx];
+      animatePhrase(text, function() {
+        setTimeout(function() {
+          scrambleOut(text, function() {
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+            cycle();
+          });
+        }, holdTime);
+      });
+    }
+
+    cycle();
+  });
 
   /* ── Client logo grid animation ── */
   const logoItems = document.querySelectorAll('.client-logo-item');

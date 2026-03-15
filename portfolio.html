@@ -7,8 +7,8 @@
 <meta name="description" content="Explore 300+ projects delivered across mobile apps, web platforms, and enterprise solutions."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css?v=5"/>
 <style>
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
@@ -47,17 +47,24 @@
 <body>
 
 <!-- NAV -->
-<header class="nav-wrap solid" id="navbar">
-  <nav class="nav">
-    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link">Services</a><a href="portfolio.html" class="nav-link active">Portfolio</a><a href="clients.html" class="nav-link">Clients</a><a href="contact.html" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
-    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" class="active">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
-</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="card-nav-wrapper">
+  <a href="index.html" class="card-nav-logo"><span class="card-nav-logo-mark">V</span>Versatile IT</a>
+  <div class="card-nav-container">
+    <nav class="card-nav" id="cardNav">
+      <div class="card-nav-top">
+        <div class="hamburger-menu" id="cardNavToggle" role="button" aria-label="Open menu" tabindex="0"><div class="hamburger-line"></div><div class="hamburger-line"></div></div>
+        <span class="nav-decrypt-text"></span>
+        <a href="contact.html" class="card-nav-cta-btn">Get a Quote</a>
+      </div>
+      <div class="card-nav-content">
+        <div class="nav-card nc-1"><div class="nav-card-label">Company</div><div class="nav-card-links"><a href="index.html" class="nav-card-link">Home</a><a href="about.html" class="nav-card-link">About Us</a><a href="portfolio.html" class="nav-card-link">Portfolio</a></div></div>
+        <div class="nav-card nc-2"><div class="nav-card-label">Services</div><div class="nav-card-links"><a href="services.html" class="nav-card-link">All Services</a><a href="clients.html" class="nav-card-link">Clients</a></div></div>
+        <div class="nav-card nc-3"><div class="nav-card-label">Contact</div><div class="nav-card-links"><a href="contact.html" class="nav-card-link">Contact Us</a></div></div>
+      </div>
+    </nav>
+  </div>
+</div>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
@@ -86,28 +93,28 @@
     <!-- Grid -->
     <div class="port-grid">
 
-      <div class="port-card rv" data-category="gaming">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#1C2792,#6A36FF)"></div><div class="port-thumb-icon">&#127918;</div><span class="port-cat-badge gaming">Gaming</span></div>
-        <div class="port-body"><h3>Sacred Beast</h3><p>Mobile gaming and entertainment application with significant downloads and high user retention across platforms.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
+      <div class="port-card rv" data-category="health">
+        <div class="port-thumb"><img src="Images/portfolio/sacredbeast.png" alt="Sacred Beast" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge health">Health & Fitness</span></div>
+        <div class="port-body"><h3>Sacred Beast</h3><p>Founded by Indian actor Sudheer Babu, Sacred Beast is a high-performance sports nutrition and supplements brand for athletes and fitness enthusiasts — fueling body and mind to conquer every challenge.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
       </div>
 
       <div class="port-card rv rv-d1" data-category="enterprise">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#14358A,#0097FE)"></div><div class="port-thumb-icon">&#9889;</div><span class="port-cat-badge enterprise">Enterprise</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/NAAS-tech.png" alt="NAAS Technologies" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge enterprise">Enterprise</span></div>
         <div class="port-body"><h3>NAAS Technologies</h3><p>Web-based enterprise technology platform with comprehensive video content and digital presence strategy.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Video</span></div></div>
       </div>
 
       <div class="port-card rv rv-d2" data-category="enterprise">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#006FBA,#1B45B4)"></div><div class="port-thumb-icon">&#127970;</div><span class="port-cat-badge enterprise">Enterprise</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/solitair.png" alt="SolitAir Holdings" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge enterprise">Enterprise</span></div>
         <div class="port-body"><h3>SolitAir Holdings</h3><p>Enterprise holding company platform with showcase website and professional video production deliverables.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Video</span></div></div>
       </div>
 
       <div class="port-card rv" data-category="web">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#0D1B3E,#006FBA)"></div><div class="port-thumb-icon">&#128300;</div><span class="port-cat-badge web">Web</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/spectransys.png" alt="Spectransys" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge web">Web</span></div>
         <div class="port-body"><h3>Spectransys</h3><p>B2B technical services platform with comprehensive website and professional video presentation materials.</p><div class="port-platforms"><span class="port-plat">Web</span><span class="port-plat">Video</span></div></div>
       </div>
 
       <div class="port-card rv rv-d1" data-category="food">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#FFAE00,#EF4444)"></div><div class="port-thumb-icon">&#127828;</div><span class="port-cat-badge food">Food</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/snapeats.png" alt="Snapeats" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge food">Food</span></div>
         <div class="port-body"><h3>Snapeats</h3><p>Full-featured food delivery application serving the Australian market with Android, iOS, and web ordering system.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
       </div>
 
@@ -117,17 +124,17 @@
       </div>
 
       <div class="port-card rv" data-category="mobile">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#6A36FF,#0097FE)"></div><div class="port-thumb-icon">&#128188;</div><span class="port-cat-badge mobile">Mobile</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/urcareer.png" alt="Ur Career" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge mobile">Mobile</span></div>
         <div class="port-body"><h3>Ur Career</h3><p>Career development platform connecting job seekers with opportunities across multiple platforms and channels.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
       </div>
 
       <div class="port-card rv rv-d1" data-category="travel">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#0097FE,#05CD99)"></div><div class="port-thumb-icon">&#9992;&#65039;</div><span class="port-cat-badge travel">Travel</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/aadhatrip.png" alt="Aadhatrip" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge travel">Travel</span></div>
         <div class="port-body"><h3>Aadhatrip</h3><p>End-to-end travel booking application with flights, accommodations, and complete trip planning features.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">Web</span></div></div>
       </div>
 
       <div class="port-card rv rv-d2" data-category="mobile">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#1B45B4,#AC5FE6)"></div><div class="port-thumb-icon">&#128736;</div><span class="port-cat-badge mobile">Mobile</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/wrkman.png" alt="Wrkman" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge mobile">Mobile</span></div>
         <div class="port-body"><h3>Wrkman</h3><p>Workforce management application streamlining operations and team coordination across field and office staff.</p><div class="port-platforms"><span class="port-plat">Android</span><span class="port-plat">iOS</span><span class="port-plat">Web</span></div></div>
       </div>
 
@@ -142,7 +149,7 @@
       </div>
 
       <div class="port-card rv rv-d2" data-category="web">
-        <div class="port-thumb"><div class="port-gradient" style="background:linear-gradient(135deg,#14358A,#1C2792)"></div><div class="port-thumb-icon">&#128187;</div><span class="port-cat-badge web">Web</span></div>
+        <div class="port-thumb"><img src="Images/portfolio/govt-telangana.png" alt="Govt. of Telangana" style="width:100%;height:100%;object-fit:cover"/><span class="port-cat-badge web">Web</span></div>
         <div class="port-body"><h3>Govt. of Telangana</h3><p>High-functioning government portals accessible in multiple languages, serving large populations across the state.</p><div class="port-platforms"><span class="port-plat">Web Portal</span><span class="port-plat">Multi-language</span></div></div>
       </div>
 
@@ -167,6 +174,6 @@
     <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
   </div>
 </footer>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

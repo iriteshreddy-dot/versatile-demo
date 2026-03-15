@@ -7,17 +7,38 @@
 <meta name="description" content="ML/AI, Web Development, Mobile Apps, UX/UI Design, Digital Marketing, SAP Consulting, Staff Augmentation and more."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css?v=5"/>
 <style>
-/* service detail rows */
-.svc-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding:72px 0;border-bottom:1px solid var(--light-grey)}
-.svc-row:last-child{border-bottom:none}
+/* disable CSS smooth scroll — Lenis handles it */
+html{scroll-behavior:auto!important}
+
+/* ── Scroll Stack ── */
+.scroll-stack-section{position:relative;background:#fff}
+.scroll-stack-inner{padding:80px 0 420px;max-width:var(--max-w);margin:0 auto;padding-left:24px;padding-right:24px}
+.scroll-stack-card{
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(126,138,253,.1);
+  border:1px solid var(--light-grey);
+  padding:56px 48px;
+  margin-bottom:100px;
+  transform-origin:top center;
+  will-change:transform,filter;
+  backface-visibility:hidden;
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+  position:relative;
+}
+.scroll-stack-card:last-of-type{margin-bottom:0}
+.scroll-stack-end{width:100%;height:1px}
+
+/* service layout inside each card */
+.svc-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .svc-row.rev{direction:rtl}
 .svc-row.rev>*{direction:ltr}
 .svc-row-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
 .svc-row-img img{width:100%;display:block}
-.svc-row-img.gradient{display:flex;align-items:center;justify-content:center;min-height:320px;font-size:72px}
 .svc-row-body .sec-chip{margin-bottom:12px}
 .svc-row-body h2{font-size:36px;font-weight:700;color:var(--blue-dark);letter-spacing:-.03em;line-height:1.08;margin-bottom:14px}
 .svc-row-body>p{font-size:16px;color:var(--text-grey);line-height:1.6;margin-bottom:22px}
@@ -34,11 +55,14 @@
 .extra-card p{font-size:13px;color:var(--text-grey);line-height:1.55}
 
 @media(max-width:900px){
-  .svc-row,.svc-row.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
+  .scroll-stack-inner{padding-bottom:200px}
+  .scroll-stack-card{padding:36px 28px;margin-bottom:60px;border-radius:16px}
+  .svc-row,.svc-row.rev{grid-template-columns:1fr;direction:ltr;gap:32px}
   .svc-sub-grid{grid-template-columns:1fr}
   .extra-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
+  .scroll-stack-card{padding:28px 20px;border-radius:14px}
   .extra-grid{grid-template-columns:1fr}
 }
 </style>
@@ -46,17 +70,24 @@
 <body>
 
 <!-- NAV -->
-<header class="nav-wrap solid" id="navbar">
-  <nav class="nav">
-    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">V</div>Versatile IT</a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="services.html" class="nav-link active">Services</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="clients.html" class="nav-link">Clients</a><a href="contact.html" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-right"><a href="contact.html" class="nav-cta">Get a Quote</a></div>
-    <button class="nav-hamburger" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="portfolio.html">Portfolio</a><a href="clients.html">Clients</a><a href="contact.html">Contact</a></div>
-</header>
+<div class="nav-backdrop" id="navBackdrop"></div>
+<div class="card-nav-wrapper">
+  <a href="index.html" class="card-nav-logo"><span class="card-nav-logo-mark">V</span>Versatile IT</a>
+  <div class="card-nav-container">
+    <nav class="card-nav" id="cardNav">
+      <div class="card-nav-top">
+        <div class="hamburger-menu" id="cardNavToggle" role="button" aria-label="Open menu" tabindex="0"><div class="hamburger-line"></div><div class="hamburger-line"></div></div>
+        <span class="nav-decrypt-text"></span>
+        <a href="contact.html" class="card-nav-cta-btn">Get a Quote</a>
+      </div>
+      <div class="card-nav-content">
+        <div class="nav-card nc-1"><div class="nav-card-label">Company</div><div class="nav-card-links"><a href="index.html" class="nav-card-link">Home</a><a href="about.html" class="nav-card-link">About Us</a><a href="portfolio.html" class="nav-card-link">Portfolio</a></div></div>
+        <div class="nav-card nc-2"><div class="nav-card-label">Services</div><div class="nav-card-links"><a href="services.html" class="nav-card-link">All Services</a><a href="clients.html" class="nav-card-link">Clients</a></div></div>
+        <div class="nav-card nc-3"><div class="nav-card-label">Contact</div><div class="nav-card-links"><a href="contact.html" class="nav-card-link">Contact Us</a></div></div>
+      </div>
+    </nav>
+  </div>
+</div>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
@@ -68,115 +99,128 @@
   </div>
 </section>
 
-<!-- SERVICE ROWS -->
-<section style="background:#fff">
-  <div class="container">
-
-    <!-- ML & AI -->
-    <div class="svc-row rv" id="ml-ai">
-      <div class="svc-row-img gradient" style="background:linear-gradient(135deg,#0D1B3E,#1B45B4)">&#129302;</div>
-      <div class="svc-row-body">
-        <div class="sec-chip">ML &amp; AI Services</div>
-        <h2>Machine Learning &amp; Artificial Intelligence</h2>
-        <p>Our services around ML and AI assist you gain high-quality, high-accuracy capabilities that modify building extremely scalable and cost-efficient digital products and solutions.</p>
-        <div class="svc-sub-grid">
-          <div class="svc-sub">Machine Learning Development</div>
-          <div class="svc-sub">Predictive Analytics</div>
-          <div class="svc-sub">Natural Language Processing</div>
-          <div class="svc-sub">Computer Vision Solutions</div>
-          <div class="svc-sub">Business Intelligence &amp; Analytics</div>
-        </div>
-        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
-      </div>
-    </div>
+<!-- SERVICE SCROLL STACK -->
+<section class="scroll-stack-section">
+  <div class="scroll-stack-inner">
 
     <!-- Web Development -->
-    <div class="svc-row rev rv" id="web-dev">
-      <div class="svc-row-img"><img src="Images/Web Development.png" alt="Web Development"/></div>
-      <div class="svc-row-body">
-        <div class="sec-chip">Web Development</div>
-        <h2>Web Design &amp; Development</h2>
-        <p>We are at the forefront of web development, crafting digital solutions that drive businesses forward. We flawlessly program your website to ensure every aspect tells a story.</p>
-        <div class="svc-sub-grid">
-          <div class="svc-sub">Angular Development</div>
-          <div class="svc-sub">React JS Development</div>
-          <div class="svc-sub">Node JS Development</div>
-          <div class="svc-sub">MongoDB Development</div>
-          <div class="svc-sub">PHP Development</div>
+    <div class="scroll-stack-card" id="web-dev">
+      <div class="svc-row">
+        <div class="svc-row-img"><img src="Images/Web Development.png" alt="Web Development"/></div>
+        <div class="svc-row-body">
+          <div class="sec-chip">Web Development</div>
+          <h2>Web Design &amp; Development</h2>
+          <p>We are at the forefront of web development, crafting digital solutions that drive businesses forward. We flawlessly program your website to ensure every aspect tells a story.</p>
+          <div class="svc-sub-grid">
+            <div class="svc-sub">Angular Development</div>
+            <div class="svc-sub">React JS Development</div>
+            <div class="svc-sub">Node JS Development</div>
+            <div class="svc-sub">MongoDB Development</div>
+            <div class="svc-sub">PHP Development</div>
+          </div>
+          <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
         </div>
-        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
       </div>
     </div>
 
     <!-- Mobile Apps -->
-    <div class="svc-row rv" id="mobile">
-      <div class="svc-row-img"><img src="Images/Mobile App Development.png" alt="Mobile App Development"/></div>
-      <div class="svc-row-body">
-        <div class="sec-chip">Mobile Development</div>
-        <h2>Mobile Application Development</h2>
-        <p>We build human-centric apps with seamless design across Android and iOS. Transform your business with proactive mobile solutions designed to enhance productivity and efficiency.</p>
-        <div class="svc-sub-grid">
-          <div class="svc-sub">Android Apps Development</div>
-          <div class="svc-sub">iOS Apps Development</div>
-          <div class="svc-sub">Ionic Apps Development</div>
-          <div class="svc-sub">Wearable Apps Development</div>
+    <div class="scroll-stack-card" id="mobile">
+      <div class="svc-row rev">
+        <div class="svc-row-img"><img src="Images/Mobile App Development.png" alt="Mobile App Development"/></div>
+        <div class="svc-row-body">
+          <div class="sec-chip">Mobile Development</div>
+          <h2>Mobile Application Development</h2>
+          <p>We build human-centric apps with seamless design across Android and iOS. Transform your business with proactive mobile solutions designed to enhance productivity and efficiency.</p>
+          <div class="svc-sub-grid">
+            <div class="svc-sub">Android Apps Development</div>
+            <div class="svc-sub">iOS Apps Development</div>
+            <div class="svc-sub">Ionic Apps Development</div>
+            <div class="svc-sub">Wearable Apps Development</div>
+          </div>
+          <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
         </div>
-        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
       </div>
     </div>
 
     <!-- UX/UI -->
-    <div class="svc-row rev rv" id="ux-ui">
-      <div class="svc-row-img"><img src="Images/UX & UI Design.png" alt="UX & UI Design"/></div>
-      <div class="svc-row-body">
-        <div class="sec-chip">UX &amp; UI Design</div>
-        <h2>UX &amp; UI Design</h2>
-        <p>Bringing imagination to life by creating a visual identity that's authentic through solutions in logo design, brand identity and collaterals.</p>
-        <div class="svc-sub-grid">
-          <div class="svc-sub">Prototypes</div>
-          <div class="svc-sub">Wireframe Design</div>
-          <div class="svc-sub">Application Design</div>
-          <div class="svc-sub">Web Design</div>
+    <div class="scroll-stack-card" id="ux-ui">
+      <div class="svc-row">
+        <div class="svc-row-img"><img src="Images/UX & UI Design.png" alt="UX & UI Design"/></div>
+        <div class="svc-row-body">
+          <div class="sec-chip">UX &amp; UI Design</div>
+          <h2>UX &amp; UI Design</h2>
+          <p>Bringing imagination to life by creating a visual identity that's authentic through solutions in logo design, brand identity and collaterals.</p>
+          <div class="svc-sub-grid">
+            <div class="svc-sub">Prototypes</div>
+            <div class="svc-sub">Wireframe Design</div>
+            <div class="svc-sub">Application Design</div>
+            <div class="svc-sub">Web Design</div>
+          </div>
+          <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
         </div>
-        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
       </div>
     </div>
 
     <!-- Digital Marketing -->
-    <div class="svc-row rv" id="marketing">
-      <div class="svc-row-img gradient" style="background:linear-gradient(135deg,#14358A,#6A36FF)">&#128200;</div>
-      <div class="svc-row-body">
-        <div class="sec-chip">Digital Marketing</div>
-        <h2>Digital Marketing &amp; SEO</h2>
-        <p>We harness data to help you make better human connections, building social equity through organic and paid means with tailor-made digital strategies.</p>
-        <div class="svc-sub-grid">
-          <div class="svc-sub">Search Engine Optimization</div>
-          <div class="svc-sub">Social Media Marketing</div>
-          <div class="svc-sub">Social Media Optimization</div>
-          <div class="svc-sub">Search Engine Marketing</div>
-          <div class="svc-sub">Pay-per-click (PPC)</div>
+    <div class="scroll-stack-card" id="marketing">
+      <div class="svc-row rev">
+        <div class="svc-row-img"><img src="Images/Digital Marketing &amp; SEO.png" alt="Digital Marketing & SEO"/></div>
+        <div class="svc-row-body">
+          <div class="sec-chip">Digital Marketing</div>
+          <h2>Digital Marketing &amp; SEO</h2>
+          <p>We harness data to help you make better human connections, building social equity through organic and paid means with tailor-made digital strategies.</p>
+          <div class="svc-sub-grid">
+            <div class="svc-sub">Search Engine Optimization</div>
+            <div class="svc-sub">Social Media Marketing</div>
+            <div class="svc-sub">Social Media Optimization</div>
+            <div class="svc-sub">Search Engine Marketing</div>
+            <div class="svc-sub">Pay-per-click (PPC)</div>
+          </div>
+          <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
         </div>
-        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
       </div>
     </div>
 
     <!-- SAP Consulting -->
-    <div class="svc-row rev rv" id="sap">
-      <div class="svc-row-img gradient" style="background:linear-gradient(135deg,#1C2792,#006FBA)">&#9881;&#65039;</div>
-      <div class="svc-row-body">
-        <div class="sec-chip">SAP Consulting</div>
-        <h2>SAP Consulting Services</h2>
-        <p>From planning to execution, we guide you through the SAP implementation process to ensure a seamless transition and maximize your enterprise ROI.</p>
-        <div class="svc-sub-grid">
-          <div class="svc-sub">ABAP Cloud</div>
-          <div class="svc-sub">ABAP Development Tools (ADT)</div>
-          <div class="svc-sub">ABAP Managed DB Procedures</div>
-          <div class="svc-sub">Application Programming Interface</div>
+    <div class="scroll-stack-card" id="sap">
+      <div class="svc-row">
+        <div class="svc-row-img"><img src="Images/SAP Consulting.png" alt="SAP Consulting Services"/></div>
+        <div class="svc-row-body">
+          <div class="sec-chip">SAP Consulting</div>
+          <h2>SAP Consulting Services</h2>
+          <p>From planning to execution, we guide you through the SAP implementation process to ensure a seamless transition and maximize your enterprise ROI.</p>
+          <div class="svc-sub-grid">
+            <div class="svc-sub">ABAP Cloud</div>
+            <div class="svc-sub">ABAP Development Tools (ADT)</div>
+            <div class="svc-sub">ABAP Managed DB Procedures</div>
+            <div class="svc-sub">Application Programming Interface</div>
+          </div>
+          <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
         </div>
-        <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
       </div>
     </div>
 
+    <!-- ML & AI -->
+    <div class="scroll-stack-card" id="ml-ai">
+      <div class="svc-row rev">
+        <div class="svc-row-img"><img src="Images/ML &amp; AI Services.png" alt="ML & AI Services"/></div>
+        <div class="svc-row-body">
+          <div class="sec-chip">ML &amp; AI Services</div>
+          <h2>Machine Learning &amp; Artificial Intelligence</h2>
+          <p>Our services around ML and AI assist you gain high-quality, high-accuracy capabilities that modify building extremely scalable and cost-efficient digital products and solutions.</p>
+          <div class="svc-sub-grid">
+            <div class="svc-sub">Machine Learning Development</div>
+            <div class="svc-sub">Predictive Analytics</div>
+            <div class="svc-sub">Natural Language Processing</div>
+            <div class="svc-sub">Computer Vision Solutions</div>
+            <div class="svc-sub">Business Intelligence &amp; Analytics</div>
+          </div>
+          <a href="contact.html" class="btn-purple sm">Discuss Your Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-stack-end"></div>
   </div>
 </section>
 
@@ -217,6 +261,140 @@
     <div class="footer-bar"><div class="footer-copy">&copy; 2025 <strong>Versatile Mobitech Pvt. Ltd.</strong> All rights reserved.</div><div class="footer-socials"><a href="#" class="footer-social">in</a><a href="#" class="footer-social">X</a><a href="#" class="footer-social">f</a><a href="#" class="footer-social">&#9654;</a></div></div>
   </div>
 </footer>
-<script src="js/main.js"></script>
+
+<script src="js/main.js?v=5"></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function() {
+  /* ── ScrollStack — optimised vanilla JS ── */
+  var STACK_DIST  = 30;
+  var STACK_POS   = 0.20;
+  var SCALE_END   = 0.10;
+  var BASE_SCALE  = 0.88;
+  var SCALE_STEP  = 0.02;
+  var BLUR_STEP   = 1.2;
+
+  var cards = Array.from(document.querySelectorAll('.scroll-stack-card'));
+  var endEl = document.querySelector('.scroll-stack-end');
+  if (!cards.length || !endEl) return;
+
+  var cached = [];
+  var endTop = 0;
+  var vh = 0;
+
+  /* Get element's absolute top relative to document */
+  function docTop(el) {
+    var top = 0;
+    while (el) { top += el.offsetTop; el = el.offsetParent; }
+    return top;
+  }
+
+  function cachePositions() {
+    vh = window.innerHeight;
+    /* Strip transforms so layout is natural */
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].style.transform = 'none';
+      cards[i].style.filter = 'none';
+    }
+    /* Force one reflow, then read all positions */
+    void document.body.offsetHeight;
+
+    endTop = docTop(endEl);
+    var stackPx = STACK_POS * vh;
+
+    for (var i = 0; i < cards.length; i++) {
+      var top = docTop(cards[i]);
+      cached[i] = {
+        top: top,
+        triggerStart: top - stackPx - STACK_DIST * i,
+        triggerEnd:   top - SCALE_END * vh,
+        targetScale:  BASE_SCALE + i * SCALE_STEP,
+        lastY: NaN, lastS: NaN, lastB: NaN
+      };
+    }
+    /* Immediately apply current scroll state */
+    update();
+  }
+
+  function update() {
+    var scrollY = window.scrollY;
+    var pinEnd  = endTop - vh * 0.5;
+    var stackPx = STACK_POS * vh;
+
+    /* Find topmost pinned card (single pass) */
+    var topIdx = 0;
+    for (var j = 0; j < cards.length; j++) {
+      if (scrollY >= cached[j].triggerStart) topIdx = j;
+    }
+
+    for (var i = 0; i < cards.length; i++) {
+      var c = cached[i];
+
+      /* Scale: 1 → targetScale as card scrolls into pin zone */
+      var range = c.triggerEnd - c.triggerStart;
+      var sp = range > 0 ? Math.max(0, Math.min(1, (scrollY - c.triggerStart) / range)) : 0;
+      var scale = 1 - sp * (1 - c.targetScale);
+
+      /* Blur: deeper in stack = more blur */
+      var blur = (i < topIdx) ? (topIdx - i) * BLUR_STEP : 0;
+
+      /* Pin translation */
+      var ty = 0;
+      if (scrollY >= c.triggerStart && scrollY <= pinEnd) {
+        ty = scrollY - c.top + stackPx + STACK_DIST * i;
+      } else if (scrollY > pinEnd) {
+        ty = pinEnd - c.top + stackPx + STACK_DIST * i;
+      }
+
+      /* Round */
+      ty    = Math.round(ty * 10) / 10;
+      scale = Math.round(scale * 1000) / 1000;
+      blur  = Math.round(blur * 10) / 10;
+
+      /* Only write DOM if changed */
+      if (ty !== c.lastY || scale !== c.lastS || blur !== c.lastB) {
+        cards[i].style.transform = 'translate3d(0,' + ty + 'px,0) scale(' + scale + ')';
+        cards[i].style.filter = blur > 0 ? 'blur(' + blur + 'px)' : 'none';
+        c.lastY = ty; c.lastS = scale; c.lastB = blur;
+      }
+    }
+  }
+
+  /* ── Lenis smooth scroll ── */
+  var lenis = new Lenis({
+    duration: 1.2,
+    easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+    smoothWheel: true,
+    touchMultiplier: 2,
+    syncTouch: true,
+    syncTouchLerp: 0.075
+  });
+
+  lenis.on('scroll', update);
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  /* ── Init after images load (heights settle) ── */
+  window.addEventListener('load', cachePositions);
+
+  /* ── Recache on resize (debounced) ── */
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(cachePositions, 200);
+  });
+
+  /* ── Early init ── */
+  if (document.readyState === 'complete') {
+    cachePositions();
+  } else {
+    document.addEventListener('DOMContentLoaded', cachePositions);
+  }
+})();
+</script>
 </body>
 </html>
